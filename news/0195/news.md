@@ -1,6 +1,6 @@
 ## <color=#DBD700>MAJOR UPDATE: Flail & BOMB Weapon Class + MORE</color>
 
-![image](https://raw.githubusercontent.com/sebwr/advr-news/refs/heads/master/news/0195/flail_update.png)
+![image](https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0195/flail_update.png)
 
 Hello hello, fearless adventurers!
 
@@ -15,7 +15,7 @@ Let’s crack open the update scroll and see what awaits you in the dungeon toda
 
 ### <color=#00FFCD>Equipment Augments ENTIRELY Reworked</color>
 
-![image](https://raw.githubusercontent.com/sebwr/advr-news/refs/heads/master/news/0195/augments.png)
+![image](https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0195/augments.png)
 
 Augments have been completely reforged.
 
@@ -29,7 +29,7 @@ Head to the anvil, experiment, and prepare your loadout like a proper dungeon pr
 
 ### <color=#FF2700>Quest System</color>
 
-![image](https://raw.githubusercontent.com/sebwr/advr-news/refs/heads/master/news/0195/quests.png)
+![image](https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0195/quests.png)
 
 Every hero needs a quest. Preferably several. Preferably posted anonymously on a board somewhere.
 
