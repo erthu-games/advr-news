@@ -7,3 +7,8 @@ TITLE: Update ea0.1.8.0
 THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0180/thumbnail.png
 DESCRIPTION: New Wave-Defense Game Mode + Halloween Update!
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0180/news.md
+---
+TITLE: Devlog 19 - All Of 2025
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0170/thumbnail.png
+DESCRIPTION: Upcoming Halloween Update
+PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0170/news.md
