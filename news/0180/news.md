@@ -1,8 +1,5 @@
 ## <color=#DBD700>MAJOR UPDATE: The Halloween + Arena Update Has Arrived!</color>
 
-TESTTESTTEST
-
-
 Adventurers, it’s time to dive back into the dungeon this Halloween if you dare.
 
 This is one of our biggest and spookiest updates yet, introducing the brand-new Arena Mode: a wave defense mode! Explore the revamped home base, complete with a Mirror to try on new cosmetics, a full Halloween makeover, and even a Photo Booth to capture your frightfully good looks.
