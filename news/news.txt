@@ -1,13 +1,16 @@
 TITLE: Hotfix ea0.1.9.5
+DATE: 2026-04-21
 DESCRIPTION: A ton of bug fixes, cosmetic categories, save slot deletion + more
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/hotfix_0195/news.md
 ---
 TITLE: Update ea0.1.9.0
+DATE: 2026-03-15
 THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0190/thumbnail.png
 DESCRIPTION: Flail & BOMB Weapon Class + MORE
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0190/news.md
 ---
 TITLE: Update ea0.1.8.0
+DATE: 2025-10-29
 THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0180/thumbnail.png
 DESCRIPTION: New Wave-Defense Game Mode + Halloween Update!
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/0180/news.md
