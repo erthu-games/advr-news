@@ -18,7 +18,7 @@ For most it will be unlocked, but if you haven't filled out your bestiary with a
 ![](57803b17ec0325045feb9f113294d23f2a24aa47.png)
 To unlock it simply hop into the dungeon and discover 35 monsters by going through each floor.
 
-![](c9d13313ecf048271c657573bc8e1afb11bff7f7.gif)
+![](c9d13313ecf048271c657573bc8e1afb11bff7f7.mp4)
 In this new game mode you'll start with just a few monsters spawning. Fight them off and survive the wave and be rewarded with a selection of relics to pick.
 
 ![](e2dc83f8906879c520938f80989bc9fe23ff3dca.png)
@@ -27,20 +27,20 @@ After you pick a relic the next wave starts, each wave spawns new relics for you
 ![](6831a213719e777e45ddebed38501dd34e677495.png)
 Occasionally you'll be forced to choose a shared curse! These curses range from waves spawning faster and more chaotic to taking more damage per hits. 
 
-![](b06e78d82ffcf588a3b68e783e39b85157c954d4.gif)
+![](b06e78d82ffcf588a3b68e783e39b85157c954d4.mp4)
 
 After your selection the floor dynamically changes, this can mean raised platforms, the ceiling crashing down on you, the floor disappearing below you so you have to stay on your feet!
 
-![](c5f97107c65de9894187724da7bc08a4ad31adf1.gif)
+![](c5f97107c65de9894187724da7bc08a4ad31adf1.mp4)
 We've also added a ton of traps randomly appearing like this new fire trap besides your classic traps like spikes, darts and more!
 
-![](5c7b688d5153cedaf59452d3665741ab6a3f1c03.gif)
+![](5c7b688d5153cedaf59452d3665741ab6a3f1c03.mp4)
 
 Arena mode has 3 doors featuring shops, items, and other goodies for you to unlock. As you kill monsters keys will drop allowing you to unlock these hidden treasures. The doors in this game mode feature a new lock which display how many keys you'll need to unlock them. 
 
 ## LIV Implementation: In-Game Camera System
 
-![](e2452fafe48c3e5d6b4bb4e0ba12b05983906461.gif)
+![](e2452fafe48c3e5d6b4bb4e0ba12b05983906461.mp4)
 
 Take pictures and videos from all kinds of angles. Selfies, action shots, and cinematic clips are now just a tap away! Find the toggle for LIV in the MISC in-game settings to spawn the tablet!
 

@@ -12,15 +12,15 @@ Let’s crack open the update scroll and see what awaits you in the dungeon toda
 
 ## <color=#DBD700>NEW WEAPON: Flail and Bomb</color>
 
-![](d87f848ddfb9bc4e74095e4d2ccec6ad984a5110.gif)
+![](d87f848ddfb9bc4e74095e4d2ccec6ad984a5110.mp4)
 
 The Flail is a heavy weapon ruled by momentum, physics, and the ancient art of swing first, ask questions never. You’ll be whipping a massive iron ball through the air and into anything unlucky enough to exist in front of you. Walls? Bonked. Pesky Flies? Bonked. Personal space (hopefully not the merchant)? Also bonked.
 
-![](33e8b75ac397ae341c69c447caa6a33f682f5121.gif)
+![](33e8b75ac397ae341c69c447caa6a33f682f5121.mp4)
 
 And when swinging wildly isn’t enough, the flail has a trick up its spiked sleeve. Its ranged counterpart is the <b>BOMB</b>. The flail head detaches and becomes a throwable explosive you can launch with your off-hand, detonating on trigger after release. Perfect for clearing mobs, controlling space, or finally getting revenge on those flies that think dodging is a personality trait.
 
-![](09b7cd0163bac86b442e9509280b6621e47816ed.gif)
+![](09b7cd0163bac86b442e9509280b6621e47816ed.mp4)
 
 For adventurers who prefer their destruction more… direct: the Flail can retract. This tightens the chain for better control and turns it into a close range monster smacker for when you just want to stand your ground and hit something extremely hard.
 
@@ -32,7 +32,7 @@ Weapons no longer politely appear fully assembled like gifts with a bow on top. 
 
 Weapons now come in pieces, literally.
 
-![](f23540889dc3bfec6d86fc4f2f4bf6d7fe5a106e.gif)
+![](f23540889dc3bfec6d86fc4f2f4bf6d7fe5a106e.mp4)
 
 Instead of finding a full weapon in one go, you’ll discover weapon parts scattered through the dungeon and assemble them across multiple runs. The Flail’s parts can be found in the Infested Dungeon and the Mines, so expect a bit of hunting before this beast is complete.
 
@@ -44,7 +44,7 @@ Two new currencies have appeared in the dungeon, and yes, you’re expected to b
 
 You can now return Gold and collect Crystals during your runs and bring them back to the homebase. Apparently the Acolyte discovered there’s treasure down there and immediately declared a mandatory (optional) donation to the Grand Library. Very noble. Very suspicious.
 
-![](51e7b43ba9d14642329ffd6924d38b1792ac6023.gif)
+![](51e7b43ba9d14642329ffd6924d38b1792ac6023.mp4)
 
 After boss fights you’ll find his loyal assistant: the Scrying Glass. Deposit your gold and crystals into it for safekeeping, and they’ll be waiting for you back home.
 
@@ -90,7 +90,7 @@ Talking about scenic, get ready for...
 
 ## <color=#DBD700>Infested Dungeon REDESIGNED</color>
 
-![](ec0e4a634983c28e1886f430ec8e9215e04d5a69.gif)
+![](ec0e4a634983c28e1886f430ec8e9215e04d5a69.mp4)
 
 That's right, the Infested Dungeon has been completely redesigned and now looks disgustingly beautiful.
 
@@ -136,7 +136,7 @@ You'll find a new end screen after you die in the dungeon, giving you a more det
 
 As you can see we've made huge improvements in how the fog looks in the game. The dungeon and your homebase is now prettier. You welcome.
 
-![](3b84412af71988a20204cf73bd04ea9ab23f5727.gif)
+![](3b84412af71988a20204cf73bd04ea9ab23f5727.mp4)
 
 We've added Ambient Occlusion! There's a setting to turn it on now, so your dungeon is EVEN prettier.
 

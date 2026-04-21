@@ -12,7 +12,7 @@ Spoilers ahead!
 
 The main focus of this content update will be the challenge runs (for more information check Devlog #1). All challenge runs need to be unlocked, which can be done by finding the corpse of a dead adventurer in the dungeon and fighting their restless souls. Defeating them will give the player a journal page with more background lore about the fallen adventurer as well as a challenge run unlock.
 
-![](aaaa321529b21179d2b8a82edb541e9673cca4fd.gif)
+![](aaaa321529b21179d2b8a82edb541e9673cca4fd.mp4)
 
 ## Crossbow enhancements
 

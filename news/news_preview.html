@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ADVR News Preview</title>
+<style>
+  :root {
+    --bg: #1a1a1a;
+    --panel: #232323;
+    --panel-alt: #2a2a2a;
+    --border: #3a3a3a;
+    --text: #e6e6e6;
+    --muted: #a0a0a0;
+    --yellow: #DBD700;
+    --hotfix: #6a3030;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
+  header {
+    padding: 16px 24px;
+    background: #111;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 16px;
+  }
+  header h1 { margin: 0; font-size: 18px; color: var(--yellow); }
+  header .info { color: var(--muted); font-size: 13px; }
+  main {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    height: calc(100vh - 57px);
+  }
+  #cards {
+    overflow-y: auto;
+    padding: 16px;
+    border-right: 1px solid var(--border);
+    background: var(--panel);
+  }
+  .card {
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  .card:hover { border-color: var(--yellow); }
+  .card.active { border-color: var(--yellow); background: #2f2f2f; }
+  .card.hotfix { background: var(--hotfix); }
+  .card-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: #000;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .card-title { font-weight: 600; font-size: 15px; margin: 0 0 4px 0; }
+  .card-date { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+  .card-desc { color: #ccc; font-size: 13px; line-height: 1.4; }
+  #detail {
+    overflow-y: auto;
+    padding: 32px 48px;
+    max-width: 900px;
+  }
+  #detail h1, #detail h2, #detail h3 { color: var(--text); }
+  #detail h1 { font-size: 28px; }
+  #detail h2 { font-size: 22px; margin-top: 28px; }
+  #detail h3 { font-size: 18px; margin-top: 22px; }
+  #detail img { max-width: 80%; height: auto; display: block; margin: 16px auto; border-radius: 4px; }
+  #detail video { max-width: 80%; height: auto; display: block; margin: 16px auto; border-radius: 4px; background: #000; }
+  #detail ul { padding-left: 24px; }
+  #detail li { margin: 4px 0; }
+  #detail p { line-height: 1.55; }
+  .placeholder { color: var(--muted); font-style: italic; padding: 32px; }
+  .error { color: #ff6a6a; padding: 32px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>ADVR News Preview</h1>
+  <span class="info">Local emulation of the in-game news board. Click a card to view its article.</span>
+</header>
+<main>
+  <div id="cards"><div class="placeholder">Loading news index…</div></div>
+  <div id="detail"><div class="placeholder">Select an article on the left.</div></div>
+</main>
+<script>
+const RAW_PREFIX = 'https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/';
+
+// Strip the github raw prefix so URLs become relative to this HTML's location.
+function localize(url) {
+  if (!url) return url;
+  if (url.startsWith(RAW_PREFIX)) return url.substring(RAW_PREFIX.length);
+  return url;
+}
+
+function parseNewsIndex(text) {
+  const entries = [];
+  const blocks = text.split(/^---\s*$/m);
+  for (const block of blocks) {
+    const trimmed = block.trim();
+    if (!trimmed) continue;
+    const entry = { title: '', date: '', description: '', thumbnail: '', path: '' };
+    for (const rawLine of trimmed.split(/\r?\n/)) {
+      const line = rawLine.trim();
+      if      (/^TITLE:/i.test(line))       entry.title       = line.slice(6).trim();
+      else if (/^DATE:/i.test(line))        entry.date        = line.slice(5).trim();
+      else if (/^DESCRIPTION:/i.test(line)) entry.description = line.slice(12).trim();
+      else if (/^THUMBNAIL:/i.test(line))   entry.thumbnail   = line.slice(10).trim();
+      else if (/^PATH:/i.test(line))        entry.path        = line.slice(5).trim();
+    }
+    if (entry.title) entries.push(entry);
+  }
+  return entries;
+}
+
+function isHotfix(entry) {
+  return /^hotfix/i.test(entry.title.trim()) || /hotfix_/i.test(entry.path);
+}
+
+function formatDate(raw) {
+  if (!raw) return '';
+  const d = new Date(raw);
+  if (isNaN(d)) return raw;
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// Convert TMP-style rich text + a markdown subset to HTML, mirroring InGameNews.cs ParseAndDisplay.
+function renderInline(text) {
+  let s = escapeHtml(text);
+  // TMP tags were escaped above; un-escape the supported subset.
+  s = s.replace(/&lt;(\/?)(b|i|u|s)&gt;/g, '<$1$2>');
+  s = s.replace(/&lt;color=(#[0-9a-fA-F]{3,8})&gt;/g, '<span style="color:$1">');
+  s = s.replace(/&lt;\/color&gt;/g, '</span>');
+  return s;
+}
+
+function renderMarkdown(md, baseDir) {
+  const lines = md.split(/\r?\n/);
+  let html = '';
+  let listOpen = false;
+  let paraBuf = [];
+
+  const flushPara = () => {
+    if (paraBuf.length === 0) return;
+    html += `<p>${renderInline(paraBuf.join('<br>'))}</p>`;
+    paraBuf = [];
+  };
+  const closeList = () => {
+    if (listOpen) { html += '</ul>'; listOpen = false; }
+  };
+
+  const imgRe = /^!\[.*?\]\((.*?)\)\s*$/;
+  const h1ColorRe = /^##\s+<color=(#[0-9a-fA-F]{3,8})>(.*?)<\/color>\s*$/;
+
+  for (const raw of lines) {
+    const line = raw.replace(/\r$/, '');
+
+    // Image / video — full line
+    const imgMatch = line.match(imgRe);
+    if (imgMatch) {
+      flushPara(); closeList();
+      let src = imgMatch[1].trim();
+      if (!src) continue;
+      if (!/^https?:/i.test(src)) src = baseDir + src;
+      else src = localize(src);
+      if (/\.mp4($|\?)/i.test(src)) {
+        html += `<video src="${src}" autoplay loop muted playsinline></video>`;
+      } else {
+        html += `<img src="${src}" alt="">`;
+      }
+      continue;
+    }
+
+    // H1-as-yellow-h2 (## <color=#DBD700>title</color>)
+    const h1m = line.match(h1ColorRe);
+    if (h1m) {
+      flushPara(); closeList();
+      html += `<h1 style="color:${h1m[1]}">${renderInline(h1m[2])}</h1>`;
+      continue;
+    }
+
+    if (line.startsWith('### ')) {
+      flushPara(); closeList();
+      html += `<h3>${renderInline(line.slice(4).trim())}</h3>`;
+      continue;
+    }
+    if (line.startsWith('## ')) {
+      flushPara(); closeList();
+      html += `<h2>${renderInline(line.slice(3).trim())}</h2>`;
+      continue;
+    }
+    if (line.startsWith('- ')) {
+      flushPara();
+      if (!listOpen) { html += '<ul>'; listOpen = true; }
+      html += `<li>${renderInline(line.slice(2).trim())}</li>`;
+      continue;
+    }
+    if (line.trim() === '') {
+      flushPara(); closeList();
+      continue;
+    }
+    // Body line — accumulate into a paragraph
+    closeList();
+    paraBuf.push(line);
+  }
+
+  flushPara(); closeList();
+  return html;
+}
+
+function getBaseDir(url) {
+  const i = url.lastIndexOf('/');
+  return i >= 0 ? url.substring(0, i + 1) : '';
+}
+
+let activeCardEl = null;
+
+async function loadArticle(entry, cardEl) {
+  if (activeCardEl) activeCardEl.classList.remove('active');
+  cardEl.classList.add('active');
+  activeCardEl = cardEl;
+
+  const detail = document.getElementById('detail');
+  detail.innerHTML = '<div class="placeholder">Loading article…</div>';
+
+  const articleUrl = localize(entry.path);
+  try {
+    const res = await fetch(articleUrl);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const md = await res.text();
+    const baseDir = getBaseDir(articleUrl);
+    detail.innerHTML = renderMarkdown(md, baseDir);
+    detail.scrollTop = 0;
+  } catch (e) {
+    detail.innerHTML = `<div class="error">Failed to load ${escapeHtml(articleUrl)}: ${escapeHtml(e.message)}</div>`;
+  }
+}
+
+function renderCards(entries) {
+  const cards = document.getElementById('cards');
+  cards.innerHTML = '';
+  for (const entry of entries) {
+    const el = document.createElement('div');
+    el.className = 'card' + (isHotfix(entry) ? ' hotfix' : '');
+
+    const thumbSrc = localize(entry.thumbnail);
+    let thumbHtml = '';
+    if (thumbSrc && !isHotfix(entry)) {
+      thumbHtml = `<img class="card-thumb" src="${thumbSrc}" loading="lazy" alt="">`;
+    }
+    el.innerHTML = `
+      ${thumbHtml}
+      <div class="card-title">${escapeHtml(entry.title)}</div>
+      <div class="card-date">${escapeHtml(formatDate(entry.date))}</div>
+      ${entry.description ? `<div class="card-desc">${escapeHtml(entry.description)}</div>` : ''}
+    `;
+    el.addEventListener('click', () => loadArticle(entry, el));
+    cards.appendChild(el);
+  }
+}
+
+(async () => {
+  try {
+    const res = await fetch('news.txt');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+    const entries = parseNewsIndex(text);
+    renderCards(entries);
+  } catch (e) {
+    document.getElementById('cards').innerHTML =
+      `<div class="error">Failed to load news.txt: ${escapeHtml(e.message)}<br><br>` +
+      `Serve this folder over HTTP (e.g. <code>python -m http.server</code>) so fetch() can read local files.</div>`;
+  }
+})();
+</script>
+</body>
+</html>

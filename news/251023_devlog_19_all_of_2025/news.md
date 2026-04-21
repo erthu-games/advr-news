@@ -15,7 +15,7 @@ Devlog 19 - All Of 2025</color>
 
 - Reworks such as fire spreading from one enemy to the other, wisps stacking, and a brand new skeleton death animation
 
-![](99549b3f8c473f59ce07fbfc35e90c7c83820c42.gif)
+![](99549b3f8c473f59ce07fbfc35e90c7c83820c42.mp4)
 
 - Special name tags and icons for the varied community programs, moderators, creators, and testers!
 - LIV (your personal selfie stick, allows for camera shots and third POV)

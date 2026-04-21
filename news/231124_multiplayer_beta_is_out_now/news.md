@@ -1,4 +1,4 @@
-![](a38a46462f9b96d559c0a51ba0fadd7897b072c3.gif)
+![](a38a46462f9b96d559c0a51ba0fadd7897b072c3.mp4)
 
 The Ancient Dungeon multiplayer beta is out now!
 

@@ -28,7 +28,7 @@ Work has already started on the points of interest system. Since multiplayer has
 
 We are also almost finished with an improved modding workflow, by releasing a language server for Visual Studio Code, which makes it possible for modders to get autocomplete information (with hints, documentation and more) for their items, achievements, etc. See the gif below:
 
-![](a8dbd7d2e833ad2e7ab34e8f1c8a747e58afaece.gif)
+![](a8dbd7d2e833ad2e7ab34e8f1c8a747e58afaece.mp4)
 
 Once that is release, we will also start producing some modding tutorial videos so everyone can get into modding a lot more easily than before.
 

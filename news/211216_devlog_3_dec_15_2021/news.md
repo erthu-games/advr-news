@@ -6,7 +6,7 @@ Progress is going great on the Sealed Souls update, and we plan on releasing the
 
 We are currently working on finishing the implementation of the Seer NPC in the home base as well as adding 9 unique challenge runs into the game. We also still need to do a bit of polishing on the ghost fights and add some extra animations and visuals. Here is a small teaser gif of the new fight:
 
-![](17a98c774adfee679aefa58287e14c5eab4daf2c.gif)
+![](17a98c774adfee679aefa58287e14c5eab4daf2c.mp4)
 
 In order to unlock new challege runs, you need to defeat the ghost and it's host. These rooms can spawn randomly during a run when certain conditions have been met.
 

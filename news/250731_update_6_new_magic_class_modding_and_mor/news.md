@@ -12,29 +12,29 @@ You have <b>two basic attacks</b> which use basic orbs as fuel. These recharge p
 
 The first is your main wand attack. This wand attack is a long range orb blast.
 
-![](039b3d393667937d4b2e0a29e549b9d8421babb4.gif)
+![](039b3d393667937d4b2e0a29e549b9d8421babb4.mp4)
 
 The second basic attack is a book blast. This is a short-range, wide AOE blast done by swinging your book across.
 
-![](0922e6e952dca3edab3b5312e2b424a901c65117.gif)
+![](0922e6e952dca3edab3b5312e2b424a901c65117.mp4)
 
 Your tome has various <b>incantations </b>to help you. You can open your book to reveal 3 orbs. 
 
-![](6786e903fa05c6dfb0e1e9e0b9836423fe303eb0.gif)
+![](6786e903fa05c6dfb0e1e9e0b9836423fe303eb0.mp4)
 
 Each orb represents a different incantation. You can only cast one incantation before you need to recharge your tome by slaying monsters, so use this wisely!
 
 The first orb is a blue orb which features a lightning attack. Zap your enemies away with this powerful lightning spray.
 
-![](b229e55faa3311bda1b0d1c34f6e2cb27b4f2193.gif)
+![](b229e55faa3311bda1b0d1c34f6e2cb27b4f2193.mp4)
 
 The second orb is a green orb. This lays down a wide poison cloud which damages enemies over time.
 
-![](4205552f5174f610b7e72814f489fcece24c6af9.gif)
+![](4205552f5174f610b7e72814f489fcece24c6af9.mp4)
 
 The last orb is a red orb, this is a fire blast that does large single enemy damage and burns them for a short period.
 
-![](4fa24a5c4e408e6276988354f5bd9b72831ab60d.gif)
+![](4fa24a5c4e408e6276988354f5bd9b72831ab60d.mp4)
 
 ### 9 New Beast Blood Upgrades
 
@@ -48,7 +48,7 @@ Customize your build with even more options mix in passive powers and unlock syn
 
 Weapons must now be discovered inside the dungeon to be unlocked adding more immersion and a better progression loop. That means you will have to find the new magic weapon at the <b>Forgotten Library!</b>
 
-![](1de64cf5c2f14d9f3b8b55160ad153bc6a05c4d4.gif)
+![](1de64cf5c2f14d9f3b8b55160ad153bc6a05c4d4.mp4)
 
 ### New Multiplayer Room Setting: Monke Movement Toggle
 

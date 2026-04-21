@@ -29,7 +29,7 @@ We are currently also working on making hard mode more interesting. We are looki
 Many people have reported issues with the physics not working properly all the time. The issue can be seen best in the gif below. What happens is that the physics was not always properly synced up, which resulted in held weapons and objects not properly syncing up and sometimes skipping a frame.
 We have now improved the consistency of the physics timestep which results in weapons properly attaching to the player hand without any delay.
 
-![](3c7ccc8a8a9f1a65de4bc0746cd8cad94b28aaa2.gif)
+![](3c7ccc8a8a9f1a65de4bc0746cd8cad94b28aaa2.mp4)
 
 ## Consistent Seeds
 

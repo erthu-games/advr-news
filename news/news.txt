@@ -1,6 +1,6 @@
 TITLE: [Small Update] April Fools, Cosmetics, Fixes and more?!
 DATE: 2026-03-31
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260331_april_fools_cosmetics_fixes_and_more/91aa0341d5d71096a52b5d311c4fd2fdf65020a4.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260331_april_fools_cosmetics_fixes_and_more/hqdefault.jpg
 DESCRIPTION: Adventurers! We got a fresh update rolling out with some long-awaited improvements, new c…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260331_april_fools_cosmetics_fixes_and_more/news.md
 ---
@@ -26,7 +26,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: MAJOR UPDATE: Flail & BOMB Weapon Class + MORE
 DATE: 2026-01-30
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260130_major_update_flail_bomb_weapon_class_mor/6f7d374593753974379684dff8a17ad62cdb6e12.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260130_major_update_flail_bomb_weapon_class_mor/4428b84f50d17fcd62f7d2b133c2d020342c8af8.png
 DESCRIPTION: Hello hello, fearless adventurers!
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260130_major_update_flail_bomb_weapon_class_mor/news.md
 ---
@@ -40,13 +40,13 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: New Wave-Defense Game Mode + Halloween Update!
 DATE: 2025-10-30
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/251030_new_wave_defense_game_mode_halloween_upd/e2dc83f8906879c520938f80989bc9fe23ff3dca.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/251030_new_wave_defense_game_mode_halloween_upd/9d2deace0345fcc30b8f9ec9341ace9b351ee120.png
 DESCRIPTION: Adventurers, it’s time to dive back into the dungeon this Halloween if you dare.
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/251030_new_wave_defense_game_mode_halloween_upd/news.md
 ---
 TITLE: Devlog 19 - All Of 2025
 DATE: 2025-10-23
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/251023_devlog_19_all_of_2025/f18a6f1434e5e2364d7663f2922a322eb8d298e8.jpg
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/251023_devlog_19_all_of_2025/6c0125bc342dc44fcb58b238dc31dfe768b30a2a.png
 DESCRIPTION: Devlog 19 - All Of 2025
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/251023_devlog_19_all_of_2025/news.md
 ---
@@ -64,7 +64,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: Update 6: New Magic Class, Modding, and More!
 DATE: 2025-07-31
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250731_update_6_new_magic_class_modding_and_mor/078565f21683108274d64f7fbad4948f3dbe80da.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250731_update_6_new_magic_class_modding_and_mor/59829b48a5b9ee48e56e56d86d7156fe9fc287e8.png
 DESCRIPTION: Adventurers, it’s time to dive back in the dungeon. This update brings the highly anticip…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250731_update_6_new_magic_class_modding_and_mor/news.md
 ---
@@ -75,7 +75,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: Devlog 18: Weapons, Destructions, Modding, Reworks, and More!
 DATE: 2025-05-16
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250516_devlog_18_weapons_destructions_modding_r/1d8a9621b591c924b22622aefb3c3c66d2d13a2e.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250516_devlog_18_weapons_destructions_modding_r/1b5a3901f229783434d768f7ae3e268afba1186f.png
 DESCRIPTION: We bring you a fresh devlog to let you know what we've been hammering away behind the sce…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250516_devlog_18_weapons_destructions_modding_r/news.md
 ---
@@ -89,7 +89,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: April 1st - Monkey Mode Movement Update?!
 DATE: 2025-04-01
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250401_april_1st_monkey_mode_movement_update/b67539b6bfb42bf761b0c49139f68db7fef21473.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250401_april_1st_monkey_mode_movement_update/hqdefault.jpg
 DESCRIPTION: Adventurers… we may have gone bananas.
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250401_april_1st_monkey_mode_movement_update/news.md
 ---
@@ -99,13 +99,13 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: New Update: New Features, Content, Upgrades, Fixes and More!
 DATE: 2025-03-14
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250314_new_update_new_features_content_upgrades/207ca55dbf479c03410ef79cf4aa297b554bd109.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250314_new_update_new_features_content_upgrades/3cab69ec589cd6dcfd0c4ea2147c004d193aaa6b.png
 DESCRIPTION: Adventurers, a brand-new update has arrived! This update introduces new enemies, relics,…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250314_new_update_new_features_content_upgrades/news.md
 ---
 TITLE: Devlog 17 - Our Valentines Gift to you!
 DATE: 2025-02-14
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250214_devlog_17_our_valentines_gift_to_you/207ca55dbf479c03410ef79cf4aa297b554bd109.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250214_devlog_17_our_valentines_gift_to_you/cdaf987581eb87eb05e18463b1da2de363aa3442.png
 DESCRIPTION: Adventurers, it’s time for another Ancient Dungeon devlog discussing the next update that…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/250214_devlog_17_our_valentines_gift_to_you/news.md
 ---
@@ -129,7 +129,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: Major Update – New Floors, Relics, and More!
 DATE: 2024-12-05
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/241205_major_update_new_floors_relics_and_more/078565f21683108274d64f7fbad4948f3dbe80da.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/241205_major_update_new_floors_relics_and_more/48080af76902ae6e0459dad62cee60ae0963e788.png
 DESCRIPTION: Packed with new features, exciting reworks, and important fixes, this update is our way o…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/241205_major_update_new_floors_relics_and_more/news.md
 ---
@@ -185,7 +185,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: Multiplayer Beta is out now!
 DATE: 2023-11-24
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/231124_multiplayer_beta_is_out_now/a38a46462f9b96d559c0a51ba0fadd7897b072c3.gif
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/231124_multiplayer_beta_is_out_now/a38a46462f9b96d559c0a51ba0fadd7897b072c3.mp4
 DESCRIPTION: The Ancient Dungeon multiplayer beta is out now!
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/231124_multiplayer_beta_is_out_now/news.md
 ---
@@ -196,7 +196,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: Devlog #13 - Multiplayer Open Beta soon!
 DATE: 2023-09-18
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/230918_devlog_13_multiplayer_open_beta_soon/10f99d464ea33a60e71eed6e6b00e63acad6f854.gif
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/230918_devlog_13_multiplayer_open_beta_soon/a38a46462f9b96d559c0a51ba0fadd7897b072c3.mp4
 DESCRIPTION: Hey everyone and welcome to the 13th development update. It has been a while since our la…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/230918_devlog_13_multiplayer_open_beta_soon/news.md
 ---
@@ -216,7 +216,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: Small Content Update: Hard Mode Modifiers, new items, new Insight upgrade
 DATE: 2022-12-24
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/221224_small_content_update_hard_mode_modifiers/18f3821ba973aefd526e8b9edc08fc154536b732.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/221224_small_content_update_hard_mode_modifiers/8529a34c53e1f8bc0fab83e5a18ff7a2034a4caf.png
 DESCRIPTION: Merry Christmas! Ancient Dungeon ea0.1.3.5 has been released. This update features a few…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/221224_small_content_update_hard_mode_modifiers/news.md
 ---
@@ -291,13 +291,13 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: Devlog #7 - Mar 9 2022 - Insight Rework, Physics and Seeds
 DATE: 2022-03-09
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/220309_devlog_7_mar_9_2022_insight_rework_physi/378f4b3219eedb3cda68a780442edd709fe3b574.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/220309_devlog_7_mar_9_2022_insight_rework_physi/d0d132a066499de9f10e0751fb7bdd5ba7c782cf.png
 DESCRIPTION: Hello everyone and welcome to the 7th development update. We are still working on porting…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/220309_devlog_7_mar_9_2022_insight_rework_physi/news.md
 ---
 TITLE: Devlog #6 - Feb 10 2022 - PCVR Improvements and Porting
 DATE: 2022-02-10
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/220210_devlog_6_feb_10_2022_pcvr_improvements_a/6a9b909330d3f2a714d3e175d483c692a06cdd12.png
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/220210_devlog_6_feb_10_2022_pcvr_improvements_a/156d132c192f509bb03108ce1aaf0cf8ec11bb07.png
 DESCRIPTION: Hello everyone, this is the 6th development update. We are still working on porting over…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/220210_devlog_6_feb_10_2022_pcvr_improvements_a/news.md
 ---
@@ -327,7 +327,7 @@ PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/
 ---
 TITLE: Devlog #3 - Dec 15 2021
 DATE: 2021-12-16
-THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/211216_devlog_3_dec_15_2021/17a98c774adfee679aefa58287e14c5eab4daf2c.gif
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/211216_devlog_3_dec_15_2021/17a98c774adfee679aefa58287e14c5eab4daf2c.mp4
 DESCRIPTION: Hey everyone, this is the third bi-weekly development update. This update will be a bit s…
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/211216_devlog_3_dec_15_2021/news.md
 ---

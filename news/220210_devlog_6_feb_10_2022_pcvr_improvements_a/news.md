@@ -6,7 +6,7 @@ We decided to upgrade our Unity Version once again to 2021.2 in order to have ac
 
 ![](156d132c192f509bb03108ce1aaf0cf8ec11bb07.png)
 
-![](9b1fa79d23434a8339ac449b00520b9b913efa08.gif)
+![](9b1fa79d23434a8339ac449b00520b9b913efa08.mp4)
 
 ## A reworked settings menu
 
