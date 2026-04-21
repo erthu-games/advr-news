@@ -1,0 +1,2 @@
+- stability improvements
+- hopefully fixed a sync issue that caused some player settings not to be transmitted correctly

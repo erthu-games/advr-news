@@ -1,0 +1,5 @@
+- fixed myopic lens not switching damage when hitting with the wrong weapon
+- fixed orb of focus speedup bug and other discrepancies between movement speed in quest and pcvr version
+- fixed dungeon generation sometimes breaking when in a loaded save
+- fixed challenge rooms sometimes spawning closed in NG+, creating a softlock
+- fixed an issue with the Item Highlight Info hovering in air sometimes

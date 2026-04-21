@@ -1,0 +1,18 @@
+- fixed wand lightning attack going on indefinitely when opening the menu
+- fixed defensive augments not applying
+- fixed armored parts of enemies sometimes not correctly despawning
+- fixed journal pages breaking tome and wand
+- it is now possible to put back your lightning incantation when releasing the trigger close to the book
+- fixed hammer time milestone not working with tome and wand augments
+- fixed fire and poison having the wrong flash colors
+- added a grace period for the tome and wand. If the last kill was more than 20 seconds ago, a kill counts as two kills to recharge your tome faster
+- fixed lightning and poison incantations as well as the book sweep attack not dealing critical hits
+- fixed bamboo firecracker breaking the fire incantation spell
+- fixed ticking treat not working
+- doomshroom is now vulnerable to poison and fire effects
+- fixed weapon tutorial breaking the alchemists delve
+- fixed an issue which could result in desynced dungeon layouts
+- fixed dead weight not spawning spikes with tome and wand
+- fixed some collision sounds getting louder than necessary
+- fixed biologist delve rabid bestiary fight softlocking
+- fixed an issue with object interest, which resulted in deaths of enemies that are far away not correctly registering, potentially breaking things

@@ -1,0 +1,15 @@
+- added ability to kick players as the host
+- added a new effect for alchemist mark when marvellous marks insight upgrade is bought (longer potion durations)
+- active relics now show the marvellous marks insight upgrade effects
+
+- fixed berserkers mark not being listed as active item
+- fixed a potential issue with the next dungeon not generating for some players in multiplayer
+- fixed generator sometimes not generating past the start room
+- fixed climbing rings being wrongly rotated in a blood key room
+- fixed ascetic delve big slimes not spawning smaller slimes
+- fixed wrong NG+ calculation when doing a follow up run
+- fixed adventurer at the end of a run causing a black screen when talking
+- fixed food in NG++ and onward being visible for a short time and then disappearing
+- fixed some achievements from not triggering correctly
+- fixed size of the boss spawn activation area so it is no longer possible to get locked out of the boss room when entering too slowly
+- stability improvements

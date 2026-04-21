@@ -1,0 +1,19 @@
+- fixed bat ear not working correctly
+- fixed loading a saved run placing the player in the wrong alt floor
+- fixed a generation issue placing wrong ceiling tiles in the noxious sewers
+- fixed burlap blindfold having issues when loading a run
+- hagglers mark now does a sound when it can't be activated (during boss fight for example)
+- fixed some text kerning issues
+- wisp and beast companion will now get removed when ending a run in multiplayer
+- fixed an issue with slobbering totem removing all keys and coins when loading a run
+- added when the player evades a hit, a sound will be played
+- fixed an issue with no damage achievements (evasion chance was not correctly applied)
+- fixed sharpened eagle talon not working
+- fixed wall arcs over boss doors not having collision
+- fixed challenge chests spawning enemies from the wrong floor
+- fixed crystals in the prisom fight not completely retracting sometimes
+- added a join discord button instead of just having text
+- fixed an issue with sealed souls ghost fights not working
+- glass cannon now restores to your previous health when it gets removed (dying in multiplayer)
+- fixed some typos
+- fixed hagglers mark softlock when in a challenge room

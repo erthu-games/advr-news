@@ -1,0 +1,24 @@
+- reduced cooldown for flail bomb by 1 second
+- increased size of the minimap on your wrist
+- fixed some softlocks with arena mode
+- fixed some issues with saving and loading runs resulting in blackscreens
+- fixed a hole in a room in overgrown gatehouse
+- fixed multiple issues with subsequent runs not correctly reloading relics and other objects resulting in buggy interactions and relics not working correctly
+- fixed an issue with relics sometimes being blank and not having a name
+- fixed mortality and crit damage stat not being saved
+- fixed crit damage not resetting after ending a run
+- fixed a potential issue with the feverish modifier not checking max health of the player
+- fixed multiple exceptions that were thrown in the game
+- fixed shopkeeper sometimes not spawning the boss when killed
+- fixed health bars sometimes not reappearing after NG+++ or vial of blue blood has been applied
+- fixed skeletons not cleaning up correctly on death
+- fixed skeletons sometimes still dealing damage after being killed
+- fixed an exception that could occur in bargain signed in blood
+- fixed ride the waves quest not unlocking when doing both arena quests at the same time
+- fixed multiple issues with the minimap
+- fixed burlap blindfold using the wrong sprite
+- improved the way multiple relics push themselves away when spawning at the same position
+- fixed augment crystals and relics overlapping sometimes
+- fixed the game upgrading your save file not saving immediately, which could cause lost progress when the game crashes after a version update
+- fixed flail parts spawning even when the flail is already unlocked
+- fixed augment crystals spawning when a weapon part is also spawning somewhere

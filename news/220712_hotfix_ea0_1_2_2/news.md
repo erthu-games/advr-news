@@ -1,0 +1,9 @@
+- fixed dead weight throwing a console error with the crossbow
+- shops have a way higher possibility of spawning in a dungeon now (they should spawn every time now)
+- fixed business senseless and overstock flyer spawning the same type of object as previously bought
+- fixed some NullReferenceExceptions 
+- adjusted the shop droptables
+- fixed a major issue with droptables not using the correct probabilities for drops
+- fixed seed specific offset not being correctly applied
+- fixed an issue with the text highlight info sometimes not disappearing
+- fixed an issue where the load methods for the save file broke for some unknown reason

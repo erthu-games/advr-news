@@ -1,0 +1,5 @@
+- fixed an issue with glittering orb
+- fixed a blackscreen issue when starting a run
+- fixed health bars in new game +++ showing crazy amounts of hearts
+- stability improvements for the end game sequence
+- reworked a certain method in the game that returns the closest player. Previously this method was prone to errors which could cause a number of potential issues in the game

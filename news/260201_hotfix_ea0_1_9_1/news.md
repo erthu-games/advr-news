@@ -1,0 +1,18 @@
+- added a new augment to the flail which shortens chain length
+- flail parts can now also spawn in the noxious sewers
+- small cosmetic adjustments to the stat screen to make marks more visible
+- increased flail damage while in mace mode
+- fixed an issue with enemies not dying correctly when using crossbow (and any subsequent non crossbow runs)
+- coins and keys will no longer collide with orbs in order to not accidentally destroy them
+- potentially fixed some world generation desyncs
+- fixed the game not reloading correctly when offline
+- changed fog color to a slight green when winning a run instead of red like before
+- fixed beast not doing its death animation for proxy players
+- fixed some materials not being affected by fog
+- fixed some issues with unbreakable items in shops
+- fixed multiple quests not unlocking correctly
+- fixed some max health changing relics not correctly updating the health amounts
+- fixed flail design in augment window not looking correct
+- fixed ingame console not showing relic names
+- fixed missing translation keys for flail stats in the stat menu
+- fixed spawn listeners not correctly cleaning up which caused issues in hard mode where enemies had too much health

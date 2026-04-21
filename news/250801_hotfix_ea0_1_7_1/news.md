@@ -1,0 +1,11 @@
+- fixed ritual of blood not working
+- fixed broken generation issues leading to softlocks in dungeon entrances
+- fixed enemies not correctly despawning sometimes
+- fixed locks despawning slowly
+- fixed locked chests slowly opening as proxy
+- fixed some logging errors
+- fixed tome doing unnecessary swing sounds
+- fixed wand doing swing sounds when doing snap turns
+- fixed wand not always being able to be equipped
+- fixed ghost delves not correctly ending
+- fixed ghosts not talking correct dialogue in sould delves

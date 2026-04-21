@@ -1,0 +1,16 @@
+- lore rooms are now a different color on the minimap (meaning that bat ear can now also identify them)
+- renamed a few items and updated their icons
+- fixed forge embers bugging out the ghost fights sometimes
+- fixed music looping in a weird way when the game is paused when entering a new dungeon
+- fixed journal page collection not showing the Cartographer pages until a lore page is found
+- fixed modding on quest
+- fixed ghost teleport attack not checking if the player is dead, resulting in a softlock
+- fixed foam bat resetting when loading a run
+- fixed bat ear not working in a loaded run
+- fixed bargain signed in blood + dis armor money glitch
+- heavy yoke now does nothing when the player has no hearts and only ethereal hearts
+- fixed beast journal pages sometimes spawning in cradle corridors, creating a softlock
+- fixed homebase not getting disabled when in a loaded run
+- fixed cybershoes not working
+- the game now creates versioned saves, making upgrading to a new game version a lot safer and also allowing downgrades (also multiple save slots in the future)
+- the foundation for localization support has been added. Custom languages can not yet be added to the game, but it will be possible soon

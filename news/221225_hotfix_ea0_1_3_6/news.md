@@ -1,0 +1,3 @@
+- fixed clumsy hardmode modifier not being disabled in normal mode
+- fixed boss damage in hard mode being double even with clumsy modifier disabled
+- fixed floating tables in one of the new rooms

@@ -1,0 +1,4 @@
+- fixed the item highlight info not disappearing sometimes
+- fixed the mines not cleaning up correctly, resutling in NG+ sometimes getting softlocked
+- fixed multiple smaller NullReferenceExceptions
+- adjustments to the sound mix

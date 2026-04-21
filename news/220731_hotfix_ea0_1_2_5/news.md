@@ -1,0 +1,15 @@
+- challenge rooms now have a slightly different theme depending on which floor you are on
+- added a sound for the poison spitter enemy
+- drastically improved the way objects are being thrown. Potions and food can now be thrown further and take the movement velocity of the player into account. This means that throwing an object up in the air while walking, will not result in the object snapping backwards because of no velocity anymore.
+- fixed an issue with the world generator sometimes generating a softlock
+- fixed spectator camera not smoothing the movements
+- fixed an issue with being able to go into the main menu when in the "run starting" animation, softlocking the player
+- fixed insight getting awarded when using the console
+- fixed an issue with alchemist marks potions not being able to be picked up when spawned
+- the screen now turns completely black when inside a wall instead of showing a few close objects
+- fixed dungeon start music sometimes cutting off when too many sounds are playing
+- fixed item highlight info sometimes staying in mid air (again)
+- fixed some layering issues for UIs during fadeout
+- trap rooms now lower their barriers when the player is outside them (failsave)
+- fixed enemy alert sounds not playing for most enemies
+- fixed potion effects not showing when climbing a ladder

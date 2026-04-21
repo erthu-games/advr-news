@@ -1,0 +1,7 @@
+- improved stability of the world generator
+- fixed an issue where the host freezes randomly and breaks the game
+- fixed beast bile companion not getting removed when going into the next run in multiplayer
+- fixed an issue with public lobbies not being selectable
+- fixed some issues with climbing in multiplayer
+- updated multiplayer solution
+- stability improvements for enemy networked state which should result in less issues of bosses not dieing for one player etc.

@@ -1,0 +1,11 @@
+- fixed deadzone settings not working correctly on some machines
+- fixed recentering in main menu and death screen, not recentering the game properly
+- fixed knife bugging out when taking a screenshot in SteamVR
+- fixed big vine plant parts staying red when killed
+- fixed weapon trail showing buggy lines when equipping and unequipping in quickly while moving
+- fixed music not being completely muted when volume is set to 0
+- improved enemy spawning in hard mode
+- fixed dungeon start music interrupting or stopping sometimes
+- fixed challenge room failsave not properly working
+- fixed loading a save not cleaning up the previously saved activatable item
+- improved pathfinding of flying enemies, hopefully preventing them from getting out of bounds

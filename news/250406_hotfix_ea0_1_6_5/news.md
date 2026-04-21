@@ -1,0 +1,3 @@
+- fixed not being able to start a second run in a multiplayer game
+- fixed climbing ladders sometimes resulting in a weird offset being applied to the player position
+- fixed pit friend not working with new food relics

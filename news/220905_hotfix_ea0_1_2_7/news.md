@@ -1,0 +1,4 @@
+- fixed sealed souls ghost fight sometimes bugging out during the zombie form
+- fixed game not reinitializing correctly after death when the game window is not in focus
+- fixed AppSW causing weird controller tracking errors in Virtual Desktop
+- the game now uses the pointer pose for the selection ray to make it more comfortable with the controllers

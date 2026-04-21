@@ -1,0 +1,23 @@
+- fully revealed minimaps are now transparent at parts that you haven't visited
+- reworked minimap to reveal tiles by line of sight and not full rooms at once
+- pois are no longer a question mark on your map but reveal with the same new room reveal mechanic
+- increased flail bomb explosion radius by 0.5m (20%) and adjusted particle effect to correct size
+- flail head max allowed swing speed has been increased by 20%
+- flail head max swing speed is now dependent on chain length (longer chain = higher max speed)
+- fixed grass blades being half transparent
+- improved grass displacement logic
+- fixed hanging vines moving in the wrong direction when interacting with them with weapons
+- fixed some crystals not spawning in a run when too many have been collected
+- fixed rabid bestiary not setting touch damage to 0 when open on proxies
+- fixed incantation orbs having the wrong layout on the tome when having more or less than 3 mana orbs
+- fixed gnawed-off paw flickering in stat screen
+- added onManaReturn modding event
+- fixed modding asset bundle loading on windows
+- fixed an issue with fungal growth on the flail
+- fixed an issue with saving causing an exception wiping your equipped relics
+- fixed being able to use marks in the end run screen
+- fixed multiple quests not correctly unlocking when using the save run feature
+- fixed arcane rift softlocking players
+- fixed arcane rift boss routine also running on proxy players
+- fixed some issues with crystal prisom fight
+- fixed un-parry-leled not working correctly after a version upgrade

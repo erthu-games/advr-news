@@ -1,0 +1,5 @@
+- added the new achievements to steam backends so they can get unlocked correctly
+- fixed multiple generation issues in the world generation
+- fixed miasmic toadskin playing the wrong sound on activation
+- added a marvellous marks effect for hagglers mark
+- disabled challenge rooms for the time being until a fix for the softlocks have been found

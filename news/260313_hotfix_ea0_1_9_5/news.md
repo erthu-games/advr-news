@@ -1,0 +1,55 @@
+- cosmetics are now separated into categories
+
+- added nametags toggle button to the LIV tablet
+- it is now possible to delete save slots
+
+- you now only pick up the relic that is shown in the hover info even if multiple relics overlap
+- fixed crossbow bolt unable to damage armor pieces
+- fixed an issue with NG+ world generator desyncs
+- fixed being able to enter the main menu after beast died causing softlocks
+- fixed jackpot crystal not spawning if max amount of crystals per run has been reached already
+- several speechbubble improvements
+- fixed relentless orchestrina wisp sometimes getting stuck forever
+- fixed regular wisps not teleporting to the player if too far away
+- fixed wisps getting stuck on ghost fights
+- fixed swinging axe damage not being counted as trap damage
+- fixed forgotten library shooting trap not being counted as trap damage
+- fixed some issues with vial of blue blood
+- mortality stat now has a default value with introspeccd
+- fixed curse of retribution save stack issues
+- fixed save state issues with: embroidered sleeve, curse of binding, chicken dinner, foam bat, halved worm, wolf fang
+- fixed a damage bug with burlap blindfold
+- fixed hit cooldown never resetting in subsequent run
+- fixed incorrect damage boost for proxies with shattered mirror
+- fixed vial of blue blood damaging the player visually when having fragranced letter
+- Heartstring harp and fragranced letter now award money when vial of blue blood is active
+- fixed being able to open the main menu in the crystal prisom fight
+- fixed elemental attack particles passing through ground tiles and pillars
+- fixed imbued ruby not correctly adjusting player health
+- fixed Eating food prevents that hand from grabbing items for a few seconds
+- fixed Curse of leaden feet falling through the floor in arena mode in MP
+- fixed Tress of silken hair not awarding hearts in MP
+- fixed glowing crystal palette shader
+- fixed speechbubble not being able to show multiple choices
+- fixed coin reward quests not awarding coins on complete
+- fixed worn shovel changing weights of non unlocked relics
+- fixed attics anonymous not unlocking correctly
+- fixed 100% progress in game slot not being possible
+- fixed challenge ghost not being invincible which caused issues with the ghost fight with crossbow/tome
+- fixed multiple objects dealing damage to proxy players which could cause issues in high ping scenarios
+- adjusted and fixed weapon relic colors for crossbow and dagger
+- fixed magnetic coupler not working on skeleton chests
+- fixed 'blood rune' invalid function calls
+- fixed proxies not teleporting out of shop fight
+- fixed an issue with Ambient Occlusion not working in the latest build
+- fixed sealed room gates not being tall enough in forgotten library
+- fixed exploding bulbs sometimes not triggering their explosion in multiplayer
+
+Modding related:
+- minor version differences in mods in the mod menu will now be shown in yellow instead of red
+- fixed an issue with rpcs not correctly working with mods
+- removed error log from spawn object
+- exposed BulletHoming, ADVRNetworkAnimator, PlayerFog, UIBestiaryImage, BossInfo and BbulletHomingCrystalPlant
+- removed WattlescriptHidden from GameHandler.initialized
+- added directory check for room creator to skip empty directories
+- New Modding Events added: onPreMarkTriggered and onPostMarkTriggered

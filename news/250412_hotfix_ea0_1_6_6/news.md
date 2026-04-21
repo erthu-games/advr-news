@@ -1,0 +1,3 @@
+- Fixed prepare run screen not showing up after the first time in multiplayer (again)
+- Fixed seated mode offset not getting correctly applied when climbing ladders
+- Reduced sticky finger probability

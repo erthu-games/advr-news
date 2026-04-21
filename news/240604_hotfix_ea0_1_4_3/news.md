@@ -1,0 +1,5 @@
+- fixed multiple softlocks in locked loot rooms
+- fixed cell door locks not being able to be opened by proxy players
+- fixed a potential issue with dungeon layout desyncs
+- fixed multiple errors that got thrown in the console, potentially causing microstutters
+- stability improvements

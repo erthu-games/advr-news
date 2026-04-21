@@ -1,0 +1,14 @@
+- fixed non-multiplayer items not spawning in singleplayer (clock key for example)
+- fixed player sometimes turning into a ghost when loading a saved run
+- fixed an issue with anarchists brand not dealing damage correctly
+- fixed chests not opening when under granite pestle effect
+- fixed glittering orb purple material issue
+- fixed ladders not working correctly in teleport mode (you no longer fall out of the world when using them)
+- fixed black ceilings destroying food items when touching
+- penitents mark description has been changed to indicate that it is chance based
+- fixed boss room exit and ground holes not working correctly with teleport movement
+- fixed beast beam attack going through walls
+- improved boss death handling in multiplayer, hopefully fixing the issue of some players not being able to progress
+- fixed boss rooms sometimes not spawning
+- fixed dead players being healed by heartspring harp
+- fixed player falling through the floor when starting a run

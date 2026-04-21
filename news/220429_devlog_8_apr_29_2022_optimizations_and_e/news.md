@@ -1,0 +1,7 @@
+Hello everyone, welcome to the 8th development update. First things first, I want to apologize for not writing a new devlog for this long. It was mainly for two reasons. First, most of the work we do currently is fixing issues that came up with the OpenXR rework which are not really interesting to talk about. If everything goes smoothly, almost none of these improvements will be noticeable for the players, because the game will behave the exact same way it did before (just with fewer bugs). The second reason is that I was on vacation and also moved into a new apartment, which slowed things down for a few weeks. But still, there has been a lot of progress in finishing the OpenXR rework and we expect to launch the first internal experimental version for testers in 1-2 weeks.
+
+This internal version will not be available for everyone initially, and will be tested by our testers in our discord server. Once that experimental version is deemed stable enough, we will launch a public experimental version that everyone can check out so we can iron out the last issues. 
+
+We definitely don't want to rush this part. The OpenXR rework basically meant that we had to rewrite almost all of our basic interaction code, like player movement, controller tracking, grabbing items, equipping stuff and more. So we want to be extra sure that everything works as expected.
+
+After the port is complete, we will start to focus mostly on new content for the game, so stay tuned for that! We have a lot of new things planned for this and next year.

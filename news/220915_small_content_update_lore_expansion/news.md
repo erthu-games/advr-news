@@ -1,0 +1,4 @@
+- added 24 new journal pages, most of which can be obtained by escaping the dungeon
+- reworked some journal pages to make them more connected to the game
+- sealed souls ghost fights are now unlocked by collecting all journal pages that belong to each ghost
+- added 6 new items

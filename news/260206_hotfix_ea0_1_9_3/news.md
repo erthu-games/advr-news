@@ -1,0 +1,5 @@
+- fixed multiple generation desyncs
+- fixed some worldgenerator states persisting between runs, which resulted in subsequent runs after a challenge run to not have secret rooms or shops for example
+- fixed relic hunter insight upgrade from spawning arena curses in normal runs
+- fixed minimap disappearing when opening quest menu
+- fixed marvellous marks adding more and more text to relics after each run

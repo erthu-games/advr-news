@@ -1,0 +1,15 @@
+- saves now won't get removed when doing a multiplayer run inbetween
+- fixed coins and keys sometimes desyncing in multiplayer causing them to float and not able to be picked up
+- fixed marvellous marks description showing on active relics when not bought
+- fixed deranged adventurer stick dealing damage after death
+- fixed enemies spawning inside of portals in hard mode and multiplayer
+- fixed enemies spawning outside of walls
+- fixed deranged adventurer hitting itself in multiplayer
+- fixed wall alignment in homebase causing a seam
+- fixed boss sometimes not spawning when another player leaves
+- fixed ghost in ghost fight being identified as a damageable enemy (resulting in some objects like wisps or eagle talon targeting it)
+- fixed secrets spawning behind climbing rings in an overgrown gatehouse room
+- fixed an infested dungeon room that killed performance
+- fixed pause screen causing issues sometimes
+- fixed some typos
+- stability improvements

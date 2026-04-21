@@ -1,0 +1,23 @@
+- fixed messengers mark not having i-frames in certain conditions
+- vial of blue blood now correctly disables your heart container visuals
+- fixed biologist delve spawning the wrong enemies
+- fixed a potential issue where you could fall through crystals in the depths
+- fixed pit friend not working with new foods items
+- fixed a generation issue with gloaming mines ghost rooms
+- improved looks of gloaming mines ghost rooms
+- fixed a world generation issue causing broken transitions and softlocks
+- fixed chests spawning inside slopes
+- fixed chests spawning inside luminous depths rubble tiles
+- fixed clarence spawning twice in hard mode
+- fixed bog slowing down all players in multiplayer
+- fixed cursed knife not spawning
+- fixed coins disappearing visually when magnetic aesthetic insight upgrade was bought
+- fixed secrets and wall insets being broken when next to a bog tile
+- fixed luminous depths ambiance particles not being removed when leaving the floor
+- fixed a crash when picking up vial of blue blood while having ethereal hearts
+- fixed a crash when picking up ethereal hearts when vial of blue blood is active
+- fixed yam not healing half an ethereal heart when player already has half an ethereal heart
+- fixed rock and crystal elementals not having a correct center set, so wisps could not correctly target them
+- fixed an incorrect calculation of ethereal hearts for players
+- fixed evasion getting rolled multiple times when standing inside an enemy
+- bandit boxes now get destroyed when the shopkeeper has been killed
