@@ -12,7 +12,7 @@ While most of the work has been spent on bugfixing, there also has been work don
 
 Sealed Souls can be understood as a form of challenge runs. Those runs are special runs which will give the player a certain handicap or change the way the game is played. Those runs will be unlocked by defeating a certain enemy in the dungeon. Once defeated, the Seer will arrive at your home base and will let you enter the memories of adventurers that have died in the dungeon to “relive” their adventure and beat the run. Below is an early WIP picture of the Seer at the home base.
 
-![](8fa669931cf4fe96d7e8438c5494b9d10baa9421.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/8fa669931cf4fe96d7e8438c5494b9d10baa9421.jpg)
 
 Each memory that you manage to complete will unlock a new item in the dungeon, as well as some new achievements will be introduced.
 

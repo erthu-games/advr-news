@@ -13,4 +13,4 @@ Happy playing!
 - fixed winged shoe not working over water and sludge pits
 - fixed rotten slime particles sometimes spawning on wrong positions
 
-![](TEh4Q5H.png)
+![](https://i.imgur.com/TEh4Q5H.jpg)

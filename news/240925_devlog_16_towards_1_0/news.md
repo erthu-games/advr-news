@@ -27,7 +27,7 @@ It's been a lot of time and a lot of work for our small dev team, but we're prou
 
 With this milestone completed we’re excited to be moving our focus back to new content for the game! Players can expect an explosion of fun updates in the coming months! What sort of fun, you ask? Let's take a look...
 
-## <color=#DBD700>The Road to 1.0</color>
+## The Road to 1.0
 
 In the last few weeks, with your feedback and suggestions we have planned out a rough structure on what a proper 1.0 release looks like. While this roadmap might change (as most of our plans do) it gives a general overview of what you can expect from us in the coming months.
 
@@ -65,11 +65,11 @@ While this means big changes, some aspects of the adventure will remain the same
 
 Are you excited? Well get ready to be even more excited with some sneak peeks into these strange worlds you’ll soon be adventuring in!
 
-![](60a6911781f14ce538a7145358190cf8eba5761c.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/60a6911781f14ce538a7145358190cf8eba5761c.jpg)
 
-![](06e859573b15c5706a19e308e2bd77229b4c3fcc.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/06e859573b15c5706a19e308e2bd77229b4c3fcc.jpg)
 
-![](12b905f4f808ffd9c0f4587027c2aaf9ace5fe50.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/12b905f4f808ffd9c0f4587027c2aaf9ace5fe50.jpg)
 
 ## The End(ing) Is Nigh (SPOILERS)
 

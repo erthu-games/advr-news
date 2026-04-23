@@ -4,7 +4,7 @@ Hello everyone and welcome to the 7th development update. We are still working o
 
 We have spent some time on adding a few new insight upgrades for next update. We also have reworked the look of the insight board, which now groups all the insight upgrades into a few categories which can be unlocked like tiny skill trees. The new board design also gives us more room to add more insight upgrades in the future without having a huge list of upgrades like in the old board.
 
-![](d0d132a066499de9f10e0751fb7bdd5ba7c782cf.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/d0d132a066499de9f10e0751fb7bdd5ba7c782cf.jpg)
 
 ## More ways to earn insight
 
@@ -18,7 +18,7 @@ With the rework of the Insight board we have also looked at how we can make play
 
 We have also introduced a difficulty multiplier which multiplies your Insight if you play on hard mode to give you more incentive to play on a harder difficulty if you want to collect insight.
 
-![](378f4b3219eedb3cda68a780442edd709fe3b574.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/378f4b3219eedb3cda68a780442edd709fe3b574.jpg)
 
 ## Improved Hard Mode
 

@@ -1,4 +1,4 @@
-![](4428b84f50d17fcd62f7d2b133c2d020342c8af8.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/4428b84f50d17fcd62f7d2b133c2d020342c8af8.jpg)
 
 Hello hello, fearless adventurers!
 
@@ -10,7 +10,7 @@ So without further suspense....
 
 Let’s crack open the update scroll and see what awaits you in the dungeon today.
 
-## <color=#DBD700>NEW WEAPON: Flail and Bomb</color>
+## NEW WEAPON: Flail and Bomb
 
 ![](d87f848ddfb9bc4e74095e4d2ccec6ad984a5110.mp4)
 
@@ -38,7 +38,7 @@ Instead of finding a full weapon in one go, you’ll discover weapon parts scatt
 
 Other weapons now follow this system too.
 
-## <color=#DBD700>2 New Currencies to Bring Home</color>
+## 2 New Currencies to Bring Home
 
 Two new currencies have appeared in the dungeon, and yes, you’re expected to bring them home like a responsible adventurer.
 
@@ -50,9 +50,9 @@ After boss fights you’ll find his loyal assistant: the Scrying Glass. Deposit 
 
 Crystals unlock Augment slots (what augment slots? patience, hero), while gold fuels various upgrades with more uses coming in future updates. The dungeon economy is thriving. Please invest responsibly.
 
-## <color=#DBD700>Equipment Augments ENTIRELY Reworked</color>
+## Equipment Augments ENTIRELY Reworked
 
-![](cfb0cd22e07f7a5b157f4632fee6aca218ea6896.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/cfb0cd22e07f7a5b157f4632fee6aca218ea6896.jpg)
 
 Augments have been completely reforged.
 
@@ -62,9 +62,9 @@ We’ve added 20 new augments so you can twist your playstyle into something tru
 
 Head to the anvil, experiment, and prepare your loadout like a proper dungeon professional. The monsters will not adjust accordingly.
 
-## <color=#DBD700>Quest System</color>
+## Quest System
 
-![](d8277beb4d37531ffa11613cd8179eabdf410516.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/d8277beb4d37531ffa11613cd8179eabdf410516.jpg)
 
 Every hero needs a quest. Preferably several. Preferably posted anonymously on a board somewhere.
 
@@ -74,11 +74,11 @@ The dungeon now officially recognizes your heroism in writing. No backing out no
 
 Happy questing, adventurers!
 
-## <color=#DBD700>A Sketchy Pond?!</color>
+## A Sketchy Pond?!
 
 The homebase has expanded… and apparently discovered water.
 
-![](31369cefec6e8bcfa219c588ae3b4037643b80f8.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/31369cefec6e8bcfa219c588ae3b4037643b80f8.jpg)
 
 A suspicious little pond has appeared, sitting there quietly and definitely not plotting anything. We’re told it’s important. We’re also told not to ask too many questions. The Acolyte insists this is all part of a grand plan we’ll “understand later.”
 
@@ -88,7 +88,7 @@ But it is very scenic. Just a reminder, you definitely do not know how to swim.
 
 Talking about scenic, get ready for...
 
-## <color=#DBD700>Infested Dungeon REDESIGNED</color>
+## Infested Dungeon REDESIGNED
 
 ![](ec0e4a634983c28e1886f430ec8e9215e04d5a69.mp4)
 
@@ -98,9 +98,9 @@ New visuals, new atmosphere, same unsettling cinnamon smell wafting through the 
 
 Enjoy the view. Try not to breathe too deeply.
 
-## <color=#DBD700>KICKSTARTER NPCS!</color>
+## KICKSTARTER NPCS!
 
-![](4737fe07ac54815c9ea5b593424a0dce23498a9b.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/4737fe07ac54815c9ea5b593424a0dce23498a9b.jpg)
 
 Four Kickstarter NPCs have moved into Ancient Dungeon and now occasionally visit your homebase to chat, loiter, and generally exist in a way that feels important.
 
@@ -108,31 +108,31 @@ If you grow attached (or just enjoy the company), you can permanently enable the
 
 AND... ONE OF THEM IS A CAT?!
 
-![](6f7d374593753974379684dff8a17ad62cdb6e12.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/6f7d374593753974379684dff8a17ad62cdb6e12.jpg)
 
-## <color=#DBD700>SAVE SLOTS</color>
+## SAVE SLOTS
 
 We've added save slots! You can now have up to 3 different save files in the game and switch between them in the main menu.
 
-## <color=#DBD700>Arena Changes</color>
+## Arena Changes
 
 We've added a lot more Arena Mode Room variations and made infested/noxious and mines/depths appear randomly and not one after another.
 
-## <color=#DBD700>NEW END SCREEN</color>
+## NEW END SCREEN
 
-![](51c4d44125785e5c7848d0df06fbc386d2fb3738.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/51c4d44125785e5c7848d0df06fbc386d2fb3738.jpg)
 
 You'll find a new end screen after you die in the dungeon, giving you a more detailed breakdown of your journey.
 
-## <color=#DBD700>Reworked Fog and added Ambient Occlusion</color>
+## Reworked Fog and added Ambient Occlusion
 
 <i>BEFORE</i>
 
-![](33c02bdf9a2674355510c56ab64e723910db331e.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/33c02bdf9a2674355510c56ab64e723910db331e.jpg)
 
 <i>AFTER</i>
 
-![](e3aef4ed5598449c6cbea332a60e1779c2e2b975.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/e3aef4ed5598449c6cbea332a60e1779c2e2b975.jpg)
 
 As you can see we've made huge improvements in how the fog looks in the game. The dungeon and your homebase is now prettier. You welcome.
 
@@ -140,13 +140,13 @@ As you can see we've made huge improvements in how the fog looks in the game. Th
 
 We've added Ambient Occlusion! There's a setting to turn it on now, so your dungeon is EVEN prettier.
 
-## <color=#DBD700>Insight and Lore Reworks</color>
+## Insight and Lore Reworks
 
 We have completely reworked how Insight is calculated. You now can't collect infinite Insight anymore. Insight is now based on your game progression (bestiary entries, relics found, journal pages etc).
 
 We have also reworked the way journal pages spawn in the dungeon to unlock them faster and more reliably, especially for experienced players.
 
-## <color=#DBD700>Changes and Adjustments</color>
+## Changes and Adjustments
 
 - Added a new stat called Mortality, which shows how much damage you will receive when hit
 - Stats of other players can now be seen in multiplayer
@@ -164,7 +164,7 @@ We have also reworked the way journal pages spawn in the dungeon to unlock them 
 - added lore rooms for luminous depths and noxious sewers
 - removed ginseng root relic
 
-## <color=#DBD700>FIXES & IMPROVEMENTS</color>
+## FIXES & IMPROVEMENTS
 
 - Massively increased the loading speed of the game
 - Dying in Singleplayer will not reload the game anymore and will immediately respawn you at the home base (like in multiplayer)

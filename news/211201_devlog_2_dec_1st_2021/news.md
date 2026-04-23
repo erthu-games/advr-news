@@ -1,10 +1,10 @@
 Hey everyone, this is the second bi-weekly development update, where we go over what we are currently working on and what is planned for the future.
 
-## <color=#DBD700>Release date of Sealed Souls Update</color>
+## Release date of Sealed Souls Update
 
 We currently do not have a release date for the Sealed Souls content update, but we plan on finishing up most of the required content for it next friday (Dec 10). After that, we will do some final testing and tweaking. Depending on how well this goes, you can expect to download the update in roughly two weeks from now.
 
-## <color=#DBD700>New content coming with the Update</color>
+## New content coming with the Update
 
 Spoilers ahead!
 
@@ -18,7 +18,7 @@ The main focus of this content update will be the challenge runs (for more infor
 
 The crossbows colors and bolt will now also be affected by item pickups (same as the sword). We also added color changes to more items in order to make your weapon look more distinct depending on which upgrades you have picked up.
 
-![](9f94837bbda2a3acdb956143a61680f0c7659a15.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/9f94837bbda2a3acdb956143a61680f0c7659a15.jpg)
 
 ## New Stat
 
@@ -26,7 +26,7 @@ We are currently experimenting with an additional stat for the game: The Luck st
 
 We definitely don't want to add too much RNG with this addition, so we plan on keeping most of the luck based things pretty minimal for the time being. For example, a maximum luck stat (100) will trigger punctured breast plate 20% of the time, a default luck stat (0) will trigger it 10% of the time, and a minimum luck stat (-100) will trigger it 0% of the time. Getting these extremely high or low stats is pretty rare (same as high evasion for example), so they should not be the norm.
 
-![](e20c7b8dc2732e8e522f967a26972297a62ee677.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/e20c7b8dc2732e8e522f967a26972297a62ee677.jpg)
 
 ## More balancing
 

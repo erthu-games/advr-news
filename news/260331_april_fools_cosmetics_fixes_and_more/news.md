@@ -1,4 +1,4 @@
-## <color=#DBD700>April Fools Update is Live!</color>
+## April Fools Update is Live!
 
 Adventurers! We got a fresh update rolling out with some long-awaited improvements, new cosmteics, and a few surprises along the way for tomorrow... 
 
@@ -26,9 +26,9 @@ Your dungeon cosmetics just got an upgrade.
 - Slim Torso
 - Wide Eyes Face
 
-![](deb285b393770b82533fc9dcd3c0ff579696edb5.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/deb285b393770b82533fc9dcd3c0ff579696edb5.jpg)
 
-![](91aa0341d5d71096a52b5d311c4fd2fdf65020a4.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/91aa0341d5d71096a52b5d311c4fd2fdf65020a4.jpg)
 
 ## Fixes And Improvements
 

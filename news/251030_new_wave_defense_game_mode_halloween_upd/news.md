@@ -1,6 +1,6 @@
-## <color=#DBD700>The Halloween + Arena Update Has Arrived!</color>
+## The Halloween + Arena Update Has Arrived!
 
-![](9d2deace0345fcc30b8f9ec9341ace9b351ee120.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/9d2deace0345fcc30b8f9ec9341ace9b351ee120.jpg)
 
 Adventurers, it’s time to dive back into the dungeon this Halloween if you dare.
 
@@ -10,21 +10,21 @@ We’ve also brewed up a <b>cauldron of reworks, fixes, and treats</b> in this m
 
 ## Arena Mode: New Game Wave-Defense Game Mode
 
-![](ed1fe4355ad0843e9d503168095c936efc9d1abd.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/ed1fe4355ad0843e9d503168095c936efc9d1abd.jpg)
 This new game mode can be found next to our classic dungeon crawler mode at the home base. You can hop in with up to 3 other players with all the weapons you have unlocked. Face wave after wave of enemies in the toughest challenge Ancient Dungeon has ever seen. Shorter runs, higher stakes!  
 
 For most it will be unlocked, but if you haven't filled out your bestiary with at least 35 dungeons you'll see a progress bar at the area and it will be locked.  
 
-![](57803b17ec0325045feb9f113294d23f2a24aa47.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/57803b17ec0325045feb9f113294d23f2a24aa47.jpg)
 To unlock it simply hop into the dungeon and discover 35 monsters by going through each floor.
 
 ![](c9d13313ecf048271c657573bc8e1afb11bff7f7.mp4)
 In this new game mode you'll start with just a few monsters spawning. Fight them off and survive the wave and be rewarded with a selection of relics to pick.
 
-![](e2dc83f8906879c520938f80989bc9fe23ff3dca.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/e2dc83f8906879c520938f80989bc9fe23ff3dca.jpg)
 After you pick a relic the next wave starts, each wave spawns new relics for you to strengthen yourself and survive so pick carefully! With more players more relics spawn each wave and you're able to select more than 1 relic. 
 
-![](6831a213719e777e45ddebed38501dd34e677495.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/6831a213719e777e45ddebed38501dd34e677495.jpg)
 Occasionally you'll be forced to choose a shared curse! These curses range from waves spawning faster and more chaotic to taking more damage per hits. 
 
 ![](b06e78d82ffcf588a3b68e783e39b85157c954d4.mp4)
@@ -46,10 +46,10 @@ Take pictures and videos from all kinds of angles. Selfies, action shots, and ci
 
 ## Home Base Updates: Photo booth + Mirror
 
-![](32cf52dab2ec7b40ad12f9aa570b38c1a556f090.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/32cf52dab2ec7b40ad12f9aa570b38c1a556f090.jpg)
 Find some new additions at the homebase, like a new Halloween themed photo booth to take selfies with your friends!
 
-![](0949789dbfcb758a48b6c6b97181aafb5d743202.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/0949789dbfcb758a48b6c6b97181aafb5d743202.jpg)
 
 Find the mirror at the Homebase to change your look. From hats to hairstyles, colors, and all kinds of cosmetics. Unlock more by completing milestones and drip yourself out!
 

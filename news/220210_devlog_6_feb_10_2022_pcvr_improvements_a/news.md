@@ -4,7 +4,7 @@ Hello everyone, this is the 6th development update. We are still working on port
 
 We decided to upgrade our Unity Version once again to 2021.2 in order to have access to realtime point light shadows. Since realtime shadows are pretty performance intensive, this feature will most likely only be available on PCVR and not on the Quest version (further testing needed). Here are a few screenshots to show the difference:
 
-![](156d132c192f509bb03108ce1aaf0cf8ec11bb07.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/156d132c192f509bb03108ce1aaf0cf8ec11bb07.jpg)
 
 ![](9b1fa79d23434a8339ac449b00520b9b913efa08.mp4)
 
@@ -12,7 +12,7 @@ We decided to upgrade our Unity Version once again to 2021.2 in order to have ac
 
 We have reworked the look of the settings menu to make it more easy to navigate, by splitting settings up into multiple categories. With the addition of shadows, we will also now have graphics settings for the game.
 
-![](6a9b909330d3f2a714d3e175d483c692a06cdd12.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/6a9b909330d3f2a714d3e175d483c692a06cdd12.jpg)
 
 ## Reworked weapon system
 

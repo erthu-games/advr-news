@@ -1,4 +1,4 @@
-![](429eadf8906270c4b40fce6813cc8136bf971ba1.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/429eadf8906270c4b40fce6813cc8136bf971ba1.jpg)
 
 Welcome to the final post about 2024, adventurers!
 

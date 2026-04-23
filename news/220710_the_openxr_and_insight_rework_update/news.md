@@ -1,4 +1,4 @@
-![](8ee600d03006676e9c2e689db0ce3898f3f5c9ea.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/8ee600d03006676e9c2e689db0ce3898f3f5c9ea.jpg)
 
 Ancient Dungeon ea0.1.2.0 has been released! The main part of this update was the time consuming port over to OpenXR as well as a huge code cleanup and rework to make many interactions less buggy and the gameplay more stable. PCVR players can look forward to playing with shadows to make the game look a lot more beautiful. The Insight system has also been reworked to lay the groundwork for more Insight related additions in the future. There have been tons of improvements under the hood, many of which can be checked out in more detail by looking at the previous devlogs!
 

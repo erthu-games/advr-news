@@ -1,4 +1,4 @@
-![](48080af76902ae6e0459dad62cee60ae0963e788.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/48080af76902ae6e0459dad62cee60ae0963e788.jpg)
 
 ## Adventurers, the latest <i>Ancient Dungeon</i> update is here!
 
@@ -6,7 +6,7 @@ Packed with new features, exciting reworks, and important fixes, this update is 
 
 ### Let’s dive into the details:
 
-![](59829b48a5b9ee48e56e56d86d7156fe9fc287e8.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/59829b48a5b9ee48e56e56d86d7156fe9fc287e8.jpg)
 
 - Added <b>13 new enemies</b> across alternate floors.
 - Introduced <b>6 new relics</b> to discover and enhance your runs.
@@ -15,21 +15,21 @@ Packed with new features, exciting reworks, and important fixes, this update is 
 - Added <b>1 new insight upgrade</b> to expand your strategies.
 - <b>2 new alternate floors</b>: Explore the <i>Noxious Sewers</i> and <i>Luminous Depths</i>, each with unique challenges, enemies, and bosses.
 
-![](e57fc280b993010abbd4f1d40f2382fb0f7a48bb.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/e57fc280b993010abbd4f1d40f2382fb0f7a48bb.jpg)
 
-![](6088d784b2b175009748b0e0fe6d17b382256a54.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/6088d784b2b175009748b0e0fe6d17b382256a54.jpg)
 
 - A <b>new post-boss area</b> lets you choose your next floor, offering more strategic control.
 - Introduced <b>2 new bosses</b>, each guarding the new alternate floors.
 
-![](078565f21683108274d64f7fbad4948f3dbe80da.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/078565f21683108274d64f7fbad4948f3dbe80da.jpg)
 
 - <b>Gloaming Mines overhaul</b>: Every room has been redesigned for smoother exploration and gameplay.
 - <b>Sound adjustments</b>: Updated volumes for enemies and objects for improved immersion.
 - Reworked <b>challenge room logic</b> to prevent softlocks during runs.
 - <b>Savegame handling improvements</b> to avoid rare save corruption issues.
 
-![](85cc4c1d2eceb0f8e68ec56508109fce57724c43.png)
+![](https://clan.cloudflare.steamstatic.com/images/35672451/85cc4c1d2eceb0f8e68ec56508109fce57724c43.jpg)
 
 - <b>Fixed</b> relic combination <i>Innocence Mark + Glass Cannon</i> killing players instantly.
 - <b>Fixed</b> <i>mod settings menu</i> overflowing with content from different mods.
