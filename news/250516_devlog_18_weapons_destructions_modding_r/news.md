@@ -1,18 +1,18 @@
-![](https://clan.cloudflare.steamstatic.com/images/35672451/1b5a3901f229783434d768f7ae3e268afba1186f.jpg)
+![](1b5a3901f229783434d768f7ae3e268afba1186f.jpg)
 
 ## Hello adventurers!
 
 We bring you a fresh devlog to let you know what we've been hammering away behind the scenes (literally) while you've been clearing dungeons, braving the new alternate floors, and exploring all the new features from the last update. Let's dive into what's coming to Ancient Dungeon.
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/3e391e016399cd1e8839bbee101252aaf1c3c4e0.jpg)
+![](3e391e016399cd1e8839bbee101252aaf1c3c4e0.jpg)
 
 we couldn't settle on just one so we've been working internally on 3 weapon combos. We'll be releasing them across three separate updates over the next 3 months, with the first coming soon! But here's the fun part: <b>You'll decide which one comes first through this community poll. (https://forms.gle/27RCzVaktPuZ4dAB9)</b> Each combo will offer a new playstyle. 
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/37b33cfeb65878546d834f59fac480050c5c739c.jpg)
+![](37b33cfeb65878546d834f59fac480050c5c739c.jpg)
 
 We'll have more to show soon, but for now, get ready to vote and let us know which one you want first! (https://forms.gle/27RCzVaktPuZ4dAB9)
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/addcc1ce4fb52bff0c1f2f7db0bc3788c5fdf375.jpg)
+![](addcc1ce4fb52bff0c1f2f7db0bc3788c5fdf375.jpg)
 
 We're giving the Beast Blood shop a full makeover. With the addition of new weapons, we want to make spending Beast Blood more rewarding. The reworked shop will feel more like the Insight upgrade system, with a clearer layout and more meaningful choices.
 
@@ -20,7 +20,7 @@ It won’t just be about weapons either, expect <b>general character upgrade</b>
 
 ![](50ab2f69306b1baedc084a19a3d5bc41a23c56a0.png)
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/1d8a9621b591c924b22622aefb3c3c66d2d13a2e.jpg)
+![](1d8a9621b591c924b22622aefb3c3c66d2d13a2e.jpg)
 
 Destruction is about to feel a lot more... destructive. We’re adding visual destruction to dungeon elements like walls, ceilings, pillars, and floors. 
 
@@ -36,7 +36,7 @@ While this won’t turn Ancient Dungeon into a dig-your-way-out sandbox, it open
 
 We want every impact to feel satisfying and who doesn’t want to break more stuff?
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/282c339355ae76a6250f2e73416b92c0fb7ef9bb.jpg)
+![](282c339355ae76a6250f2e73416b92c0fb7ef9bb.jpg)
 
 Our modding community has been asking for more support, and we're making your lives easier. Coming alongside the next update:
 
@@ -48,7 +48,7 @@ Our modding community has been asking for more support, and we're making your li
 
 This is a full quality of life patch for our fellow modders.
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/587033b27a15c6dde93cdee80caefe2e7225f052.jpg)
+![](587033b27a15c6dde93cdee80caefe2e7225f052.jpg)
 
 More floors are coming. We're currently working on three new dungeon floors:
 
@@ -58,7 +58,7 @@ More floors are coming. We're currently working on three new dungeon floors:
 
 Our goal is that every dungeon gets an alternate path and a few surprises beyond that.
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/06a43d02b61cb802d6f72c79d9df706e49de38fe.jpg)
+![](06a43d02b61cb802d6f72c79d9df706e49de38fe.jpg)
 
 We're tweaking the flow of how you unlock content. Here's what's coming:
 
@@ -68,7 +68,7 @@ We're tweaking the flow of how you unlock content. Here's what's coming:
 
 We want progression to feel earned immersive, and more satisfying each run.
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/d18f4193cd01b77df32f8763115c506be98ebdce.jpg)
+![](d18f4193cd01b77df32f8763115c506be98ebdce.jpg)
 
 We're making some upgrades and general improvements, here's a list below:
 

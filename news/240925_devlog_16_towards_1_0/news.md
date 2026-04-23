@@ -65,11 +65,11 @@ While this means big changes, some aspects of the adventure will remain the same
 
 Are you excited? Well get ready to be even more excited with some sneak peeks into these strange worlds you’ll soon be adventuring in!
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/60a6911781f14ce538a7145358190cf8eba5761c.jpg)
+![](60a6911781f14ce538a7145358190cf8eba5761c.jpg)
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/06e859573b15c5706a19e308e2bd77229b4c3fcc.jpg)
+![](06e859573b15c5706a19e308e2bd77229b4c3fcc.jpg)
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/12b905f4f808ffd9c0f4587027c2aaf9ace5fe50.jpg)
+![](12b905f4f808ffd9c0f4587027c2aaf9ace5fe50.jpg)
 
 ## The End(ing) Is Nigh (SPOILERS)
 

@@ -1,4 +1,4 @@
-![](https://clan.cloudflare.steamstatic.com/images/35672451/df105ee20c7a42aebab4bfe9560d5d27bb73f117.jpg)
+![](df105ee20c7a42aebab4bfe9560d5d27bb73f117.jpg)
 
 Ancient Dungeon Content Update #1: The Sealed Souls is now available on AppLab and Steam! This is our first big content update and we hope you enjoy the new content over the holidays! Merry Christmas everyone and thank you for the huge support!
 

@@ -26,9 +26,9 @@ Your dungeon cosmetics just got an upgrade.
 - Slim Torso
 - Wide Eyes Face
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/deb285b393770b82533fc9dcd3c0ff579696edb5.jpg)
+![](deb285b393770b82533fc9dcd3c0ff579696edb5.jpg)
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/91aa0341d5d71096a52b5d311c4fd2fdf65020a4.jpg)
+![](91aa0341d5d71096a52b5d311c4fd2fdf65020a4.jpg)
 
 ## Fixes And Improvements
 

@@ -1,4 +1,4 @@
-![](https://clan.cloudflare.steamstatic.com/images/35672451/4428b84f50d17fcd62f7d2b133c2d020342c8af8.jpg)
+![](4428b84f50d17fcd62f7d2b133c2d020342c8af8.jpg)
 
 Hello hello, fearless adventurers!
 
@@ -52,7 +52,7 @@ Crystals unlock Augment slots (what augment slots? patience, hero), while gold f
 
 ## Equipment Augments ENTIRELY Reworked
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/cfb0cd22e07f7a5b157f4632fee6aca218ea6896.jpg)
+![](cfb0cd22e07f7a5b157f4632fee6aca218ea6896.jpg)
 
 Augments have been completely reforged.
 
@@ -64,7 +64,7 @@ Head to the anvil, experiment, and prepare your loadout like a proper dungeon pr
 
 ## Quest System
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/d8277beb4d37531ffa11613cd8179eabdf410516.jpg)
+![](d8277beb4d37531ffa11613cd8179eabdf410516.jpg)
 
 Every hero needs a quest. Preferably several. Preferably posted anonymously on a board somewhere.
 
@@ -78,7 +78,7 @@ Happy questing, adventurers!
 
 The homebase has expanded… and apparently discovered water.
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/31369cefec6e8bcfa219c588ae3b4037643b80f8.jpg)
+![](31369cefec6e8bcfa219c588ae3b4037643b80f8.jpg)
 
 A suspicious little pond has appeared, sitting there quietly and definitely not plotting anything. We’re told it’s important. We’re also told not to ask too many questions. The Acolyte insists this is all part of a grand plan we’ll “understand later.”
 
@@ -100,7 +100,7 @@ Enjoy the view. Try not to breathe too deeply.
 
 ## KICKSTARTER NPCS!
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/4737fe07ac54815c9ea5b593424a0dce23498a9b.jpg)
+![](4737fe07ac54815c9ea5b593424a0dce23498a9b.jpg)
 
 Four Kickstarter NPCs have moved into Ancient Dungeon and now occasionally visit your homebase to chat, loiter, and generally exist in a way that feels important.
 
@@ -108,7 +108,7 @@ If you grow attached (or just enjoy the company), you can permanently enable the
 
 AND... ONE OF THEM IS A CAT?!
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/6f7d374593753974379684dff8a17ad62cdb6e12.jpg)
+![](6f7d374593753974379684dff8a17ad62cdb6e12.jpg)
 
 ## SAVE SLOTS
 
@@ -120,7 +120,7 @@ We've added a lot more Arena Mode Room variations and made infested/noxious and 
 
 ## NEW END SCREEN
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/51c4d44125785e5c7848d0df06fbc386d2fb3738.jpg)
+![](51c4d44125785e5c7848d0df06fbc386d2fb3738.jpg)
 
 You'll find a new end screen after you die in the dungeon, giving you a more detailed breakdown of your journey.
 
@@ -128,11 +128,11 @@ You'll find a new end screen after you die in the dungeon, giving you a more det
 
 <i>BEFORE</i>
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/33c02bdf9a2674355510c56ab64e723910db331e.jpg)
+![](33c02bdf9a2674355510c56ab64e723910db331e.jpg)
 
 <i>AFTER</i>
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/e3aef4ed5598449c6cbea332a60e1779c2e2b975.jpg)
+![](e3aef4ed5598449c6cbea332a60e1779c2e2b975.jpg)
 
 As you can see we've made huge improvements in how the fog looks in the game. The dungeon and your homebase is now prettier. You welcome.
 

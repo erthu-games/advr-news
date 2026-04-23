@@ -2,7 +2,7 @@
 
 Adventurers, it’s time to dive back in the dungeon. This update brings the highly anticipated <b>new magic weapon combo</b>, a reworked Beast Blood shop, massive memory and multiplayer improvements, and new modding tools.
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/59829b48a5b9ee48e56e56d86d7156fe9fc287e8.jpg)
+![](59829b48a5b9ee48e56e56d86d7156fe9fc287e8.jpg)
 
 ### New Weapon Combo: Wand & Tome
 
@@ -38,7 +38,7 @@ The last orb is a red orb, this is a fire blast that does large single enemy dam
 
 ### 9 New Beast Blood Upgrades
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/1f9c6eec731bf11cf65aaae9768ce4a7ee9781be.jpg)
+![](1f9c6eec731bf11cf65aaae9768ce4a7ee9781be.jpg)
 
 Customize your build with even more options mix in passive powers and unlock synergies as you go. You will also discover a brand new beast blood shop so head to your home base and take a look!
 
@@ -54,7 +54,7 @@ Weapons must now be discovered inside the dungeon to be unlocked adding more imm
 
 Now hosts can allow or disallow monkey movement in rooms. Choose your chaos.
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/078565f21683108274d64f7fbad4948f3dbe80da.jpg)
+![](078565f21683108274d64f7fbad4948f3dbe80da.jpg)
 
 ### 🛠️ Modding Overhaul
 
@@ -90,7 +90,7 @@ Settings menu now shows all weapon settings no matter if they're selected or not
 
 Each weapon now comes with an in-game tutorial to help you learn fast.
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/85cc4c1d2eceb0f8e68ec56508109fce57724c43.jpg)
+![](85cc4c1d2eceb0f8e68ec56508109fce57724c43.jpg)
 
 - Fixed Bloodshot Eye killing you unfairly in high NG+
 - Fixed stretching grass visual glitch and idle sounds for some enemies

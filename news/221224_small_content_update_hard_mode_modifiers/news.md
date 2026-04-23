@@ -10,6 +10,6 @@ Changelog
 - a few new rooms
 - fixed several bugs
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/8529a34c53e1f8bc0fab83e5a18ff7a2034a4caf.jpg)
+![](8529a34c53e1f8bc0fab83e5a18ff7a2034a4caf.jpg)
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/18f3821ba973aefd526e8b9edc08fc154536b732.jpg)
+![](18f3821ba973aefd526e8b9edc08fc154536b732.jpg)

@@ -1,5 +1,5 @@
 ## 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/6c0125bc342dc44fcb58b238dc31dfe768b30a2a.jpg)
+![](6c0125bc342dc44fcb58b238dc31dfe768b30a2a.jpg)
 Devlog 19 - All Of 2025
 
 <b>Hey Adventurers!</b> We’ve been listening to your feedback and doing a ton of planning, which means we’ve made some changes to our development plans since our last devlog. So, we figured it was time for a new one! This devlog showcases everything included in the <b>Halloween Update</b>, as well as a look ahead at what we’re planning for the<b> rest of 2025</b>.
@@ -20,7 +20,7 @@ Devlog 19 - All Of 2025
 - Special name tags and icons for the varied community programs, moderators, creators, and testers!
 - LIV (your personal selfie stick, allows for camera shots and third POV)
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/7fcaf709833f1db5680ff1b5d80e2d07dc7267a9.jpg)
+![](7fcaf709833f1db5680ff1b5d80e2d07dc7267a9.jpg)
 
 - Sealed Rooms return!
 - Minimap improvements: this is improvements to the scaling and so that player names appear on the minimap
@@ -34,7 +34,7 @@ Devlog 19 - All Of 2025
 - Cosmetic shop,
 - <b>NEW WEAPON</b> coming this December (here's another hint!)
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/c7dffee178d825bd092290be3c2a04efd1645e9a.jpg)
+![](c7dffee178d825bd092290be3c2a04efd1645e9a.jpg)
 
 - Christmas fun,
 - Multiplayer saving
@@ -42,7 +42,7 @@ Devlog 19 - All Of 2025
 - Progression rework
 - Milestones reworked into a new Quest System
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/f0a73175e9a3f84b311aa0e517c3ad415c82c1c0.jpg)
+![](f0a73175e9a3f84b311aa0e517c3ad415c82c1c0.jpg)
 
 - Improved shadow quality on Quest 3 and PCVR
 - Ongoing bug fixes and polish

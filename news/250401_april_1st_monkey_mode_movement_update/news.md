@@ -1,4 +1,4 @@
-![](https://clan.cloudflare.steamstatic.com/images/35672451/65c1d7a25a3a8c77c4343aeda5c76e3d902b241d.jpg)
+![](65c1d7a25a3a8c77c4343aeda5c76e3d902b241d.jpg)
 
 ## 🍌 Ancient Dungeon – Monkey Mode Movement Update 🍌
   

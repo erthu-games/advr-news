@@ -1,6 +1,6 @@
 ## ⛓️ Ancient Dungeon - New Update! ⛓️
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/3cab69ec589cd6dcfd0c4ea2147c004d193aaa6b.jpg)
+![](3cab69ec589cd6dcfd0c4ea2147c004d193aaa6b.jpg)
 
 Adventurers, a <b>brand-new update</b> has arrived! This update introduces new enemies, relics, insight upgrades, a Bestiary to track all dungeon creatures, player statistics, and more! Plus, major quality-of-life improvements, bug fixes, and <b>autosaving!</b>
 
@@ -8,16 +8,16 @@ The update is live on Quest and Steam, and coming to PSVR2 next week!
 
 ### Read on for the full details:
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/59829b48a5b9ee48e56e56d86d7156fe9fc287e8.jpg)
+![](59829b48a5b9ee48e56e56d86d7156fe9fc287e8.jpg)
 
 - <b>Added 3 new enemies</b>
 - <b>Added Bestiary</b> – Track all <b>71 enemies</b> you've encountered throughout the dungeon. 
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/77524ad95941230ce562e95bd03eb8e629d98815.jpg)
+![](77524ad95941230ce562e95bd03eb8e629d98815.jpg)
 
 - <b>Added 10 Points of Interest</b> – Unique dungeon areas for more exploration variety <i>(this is just the beginning!)</i>  
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/e4a636be781a3038c5c5e725253348486f888a98.jpg)
+![](e4a636be781a3038c5c5e725253348486f888a98.jpg)
 
 - <b>Added 6 new milestones</b> to challenge your dungeon runs.
 - <b>Added locked loot rooms</b> to <b>Noxious Sewers</b> and <b>Luminous Depths</b>.
@@ -26,20 +26,20 @@ The update is live on Quest and Steam, and coming to PSVR2 next week!
 - <b>Added 1 new orb</b>.
 - <b>Added 10 new Insight Upgrades</b> to refine progression.  
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/3253fde453cb38e3baae08a5fab847364b5e14e6.jpg)
+![](3253fde453cb38e3baae08a5fab847364b5e14e6.jpg)
 
 - <b>Added 7 new food types</b> <i>(including CHEESE! 🧀)</i>
 - <b>Added 5 new Ethereal Heart types</b>.  
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/09cfce781fade9d787cc513af5f9e0ae162aca37.jpg)
+![](09cfce781fade9d787cc513af5f9e0ae162aca37.jpg)
 
 - <b>Added Player Statistics Screen</b> – Track dungeon runs, kills, loot collected, and more.  
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/207ca55dbf479c03410ef79cf4aa297b554bd109.jpg)
+![](207ca55dbf479c03410ef79cf4aa297b554bd109.jpg)
 
   
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/078565f21683108274d64f7fbad4948f3dbe80da.jpg)
+![](078565f21683108274d64f7fbad4948f3dbe80da.jpg)
 
 - <b>Autosaving added!</b> The game now autosaves when entering a new floor <i>(just like pressing the save disk).</i>
 - <b>Glittering Orb now turns slimes into golden slimes, chests into golden chests, and pots into golden pots.</b>
@@ -48,7 +48,7 @@ The update is live on Quest and Steam, and coming to PSVR2 next week!
 - <b>Reworked dungeon generation logic</b> to prevent objects like crates from spawning inside walls.
   
 
-![](https://clan.cloudflare.steamstatic.com/images/35672451/85cc4c1d2eceb0f8e68ec56508109fce57724c43.jpg)
+![](85cc4c1d2eceb0f8e68ec56508109fce57724c43.jpg)
 
 - Fixed <b>visual glitch</b> with the number of adventurers shown on the <b>Game Over</b> screen.
 - Fixed <b>extra insight calculation</b> from <b>Hard Mode</b> not displaying correctly.
