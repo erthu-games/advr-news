@@ -1,4 +1,4 @@
-## April Fools Update is Live!
+## April Fools, Cosmetics, Fixes and more?!
 
 Adventurers! We got a fresh update rolling out with some long-awaited improvements, new cosmteics, and a few surprises along the way for tomorrow... 
 

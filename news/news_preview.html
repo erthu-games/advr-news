@@ -13,6 +13,8 @@
     --muted: #a0a0a0;
     --yellow: #DBD700;
     --hotfix: #6a3030;
+    --danger: #c75454;
+    --ok: #76b67a;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
@@ -58,10 +60,13 @@
   .card-title { font-weight: 600; font-size: 15px; margin: 0 0 4px 0; }
   .card-date { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
   .card-desc { color: #ccc; font-size: 13px; line-height: 1.4; }
-  #detail {
+  #detailPane {
     overflow-y: auto;
-    padding: 32px 48px;
-    max-width: 900px;
+    padding: 24px 48px 40px;
+    max-width: 1040px;
+  }
+  #detail {
+    padding-top: 8px;
   }
   #detail h1, #detail h2, #detail h3 { color: var(--text); }
   #detail h1 { font-size: 28px; }
@@ -74,6 +79,79 @@
   #detail p { line-height: 1.55; }
   .placeholder { color: var(--muted); font-style: italic; padding: 32px; }
   .error { color: #ff6a6a; padding: 32px; }
+  .hidden { display: none !important; }
+  .editor {
+    border: 1px solid var(--border);
+    background: #202020;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  .editor-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .editor h2 { margin: 0; font-size: 16px; color: var(--yellow); }
+  .editor-status { color: var(--muted); font-size: 12px; min-height: 18px; text-align: right; }
+  .editor-status.ok { color: var(--ok); }
+  .editor-status.error { color: #ff8a8a; padding: 0; }
+  .form-grid { display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 12px; }
+  label { display: block; color: var(--muted); font-size: 12px; font-weight: 600; }
+  input, textarea, select {
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid var(--border);
+    background: #151515;
+    color: var(--text);
+    border-radius: 4px;
+    padding: 8px 10px;
+    font: inherit;
+  }
+  textarea { min-height: 68px; resize: vertical; }
+  input[type="file"] { padding: 7px; }
+  input:focus, textarea:focus, select:focus { outline: 1px solid var(--yellow); border-color: var(--yellow); }
+  .thumbnail-tools {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(220px, .55fr);
+    gap: 10px;
+    align-items: end;
+    margin-top: 10px;
+  }
+  .thumbnail-preview {
+    width: 164px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  .checks { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 12px; }
+  .check { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 500; }
+  .check input { width: auto; margin: 0; }
+  .actions { display: flex; gap: 10px; margin-top: 16px; }
+  button {
+    border: 1px solid var(--border);
+    background: #303030;
+    color: var(--text);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font: inherit;
+    cursor: pointer;
+  }
+  button:hover { border-color: var(--yellow); }
+  button.primary { background: #3a3a16; border-color: #716f10; color: #f1ef7a; }
+  button.danger { background: #3b1f1f; border-color: var(--danger); color: #ffb2b2; }
+  button:disabled { opacity: .5; cursor: default; }
+  @media (max-width: 980px) {
+    main { grid-template-columns: 1fr; height: auto; }
+    #cards { max-height: 46vh; border-right: 0; border-bottom: 1px solid var(--border); }
+    #detailPane { padding: 20px; }
+    .form-grid, .thumbnail-tools { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -83,16 +161,87 @@
 </header>
 <main>
   <div id="cards"><div class="placeholder">Loading news index…</div></div>
-  <div id="detail"><div class="placeholder">Select an article on the left.</div></div>
+  <div id="detailPane">
+    <section id="editor" class="editor hidden">
+      <div class="editor-head">
+        <h2>Edit selected post</h2>
+        <div id="editorStatus" class="editor-status"></div>
+      </div>
+      <form id="editForm">
+        <div class="form-grid">
+          <label>Title
+            <input id="editTitle" type="text" required>
+          </label>
+          <label>Date
+            <input id="editDate" type="date" required>
+          </label>
+        </div>
+        <label>Description
+          <textarea id="editDescription"></textarea>
+        </label>
+        <label>Thumbnail URL
+          <input id="editThumbnail" type="text">
+        </label>
+        <div class="thumbnail-tools">
+          <label>Article images
+            <select id="thumbnailAssets"></select>
+          </label>
+          <button id="useAssetButton" type="button">Use selected</button>
+          <label>Upload thumbnail
+            <input id="thumbnailFile" type="file" accept="image/*">
+          </label>
+        </div>
+        <img id="thumbnailPreview" class="thumbnail-preview hidden" alt="">
+        <div class="checks">
+          <label class="check"><input id="updateArticleHeading" type="checkbox">Update first article heading</label>
+          <label class="check"><input id="archiveFolder" type="checkbox" checked>Move removed folder to _removed_posts</label>
+        </div>
+        <div class="actions">
+          <button id="saveButton" class="primary" type="submit">Save changes</button>
+          <button id="removeButton" class="danger" type="button">Remove post</button>
+        </div>
+      </form>
+    </section>
+    <div id="detail"><div class="placeholder">Select an article on the left.</div></div>
+  </div>
 </main>
 <script>
 const RAW_PREFIX = 'https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/';
+let newsEntries = [];
+let activeEntry = null;
+let activeCardEl = null;
 
 // Strip the github raw prefix so URLs become relative to this HTML's location.
 function localize(url) {
   if (!url) return url;
   if (url.startsWith(RAW_PREFIX)) return url.substring(RAW_PREFIX.length);
   return url;
+}
+
+function apiUrl(path) {
+  return path.replace(/^\/+/, '');
+}
+
+async function apiGet(path) {
+  const res = await fetch(apiUrl(path));
+  const body = await res.json().catch(() => null);
+  if (!res.ok || !body || body.ok === false) {
+    throw new Error((body && body.error) || `HTTP ${res.status}`);
+  }
+  return body;
+}
+
+async function apiPost(path, payload) {
+  const res = await fetch(apiUrl(path), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const body = await res.json().catch(() => null);
+  if (!res.ok || !body || body.ok === false) {
+    throw new Error((body && body.error) || `HTTP ${res.status}`);
+  }
+  return body;
 }
 
 function parseNewsIndex(text) {
@@ -127,7 +276,11 @@ function formatDate(raw) {
 }
 
 function escapeHtml(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function escapeAttr(s) {
+  return escapeHtml(s).replace(/"/g, '&quot;');
 }
 
 // Convert TMP-style rich text + a markdown subset to HTML, mirroring InGameNews.cs ParseAndDisplay.
@@ -148,7 +301,7 @@ function renderMarkdown(md, baseDir) {
 
   const flushPara = () => {
     if (paraBuf.length === 0) return;
-    html += `<p>${renderInline(paraBuf.join('<br>'))}</p>`;
+    html += `<p>${paraBuf.map(renderInline).join('<br>')}</p>`;
     paraBuf = [];
   };
   const closeList = () => {
@@ -170,9 +323,9 @@ function renderMarkdown(md, baseDir) {
       if (!/^https?:/i.test(src)) src = baseDir + src;
       else src = localize(src);
       if (/\.mp4($|\?)/i.test(src)) {
-        html += `<video src="${src}" autoplay loop muted playsinline></video>`;
+        html += `<video src="${escapeAttr(src)}" autoplay loop muted playsinline></video>`;
       } else {
-        html += `<img src="${src}" alt="">`;
+        html += `<img src="${escapeAttr(src)}" alt="">`;
       }
       continue;
     }
@@ -219,15 +372,98 @@ function getBaseDir(url) {
   return i >= 0 ? url.substring(0, i + 1) : '';
 }
 
-let activeCardEl = null;
+function setEditorStatus(message, type = '') {
+  const status = document.getElementById('editorStatus');
+  status.textContent = message || '';
+  status.className = 'editor-status' + (type ? ` ${type}` : '');
+}
 
-async function loadArticle(entry, cardEl) {
-  if (activeCardEl) activeCardEl.classList.remove('active');
-  cardEl.classList.add('active');
-  activeCardEl = cardEl;
+function getArticleDirectory(entry) {
+  return getBaseDir(localize(entry.path));
+}
 
+function normalizeThumbnailInput(value) {
+  const trimmed = value.trim();
+  if (!trimmed || /^https?:/i.test(trimmed)) return trimmed;
+  const relative = trimmed.includes('/') ? trimmed.replace(/^\/+/, '') : getArticleDirectory(activeEntry) + trimmed;
+  return RAW_PREFIX + relative;
+}
+
+function updateThumbnailPreview() {
+  const preview = document.getElementById('thumbnailPreview');
+  const inputValue = document.getElementById('editThumbnail').value.trim();
+  const file = document.getElementById('thumbnailFile').files[0];
+
+  if (file) {
+    preview.src = URL.createObjectURL(file);
+    preview.classList.remove('hidden');
+    return;
+  }
+
+  if (!inputValue) {
+    preview.classList.add('hidden');
+    preview.removeAttribute('src');
+    return;
+  }
+
+  preview.src = localize(normalizeThumbnailInput(inputValue));
+  preview.classList.remove('hidden');
+}
+
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(reader.error || new Error('Failed to read file.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+async function loadThumbnailAssets(entry) {
+  const select = document.getElementById('thumbnailAssets');
+  select.disabled = true;
+  select.innerHTML = '<option value="">Loading...</option>';
+
+  try {
+    const body = await apiGet(`api/assets?path=${encodeURIComponent(entry.path)}`);
+    const assets = body.assets || [];
+    if (assets.length === 0) {
+      select.innerHTML = '<option value="">No article images found</option>';
+      return;
+    }
+
+    select.innerHTML = '<option value="">Choose an image...</option>';
+    for (const asset of assets) {
+      const option = document.createElement('option');
+      option.value = asset.url;
+      option.textContent = asset.name;
+      if (localize(asset.url) === localize(entry.thumbnail)) option.selected = true;
+      select.appendChild(option);
+    }
+    select.disabled = false;
+  } catch (e) {
+    select.innerHTML = '<option value="">Start news_preview_server.ps1 for editing</option>';
+    setEditorStatus(`Editing unavailable: ${e.message}`, 'error');
+  }
+}
+
+function populateEditor(entry) {
+  document.getElementById('editor').classList.remove('hidden');
+  document.getElementById('editTitle').value = entry.title || '';
+  document.getElementById('editDate').value = entry.date || '';
+  document.getElementById('editDescription').value = entry.description || '';
+  document.getElementById('editThumbnail').value = entry.thumbnail || '';
+  document.getElementById('thumbnailFile').value = '';
+  document.getElementById('updateArticleHeading').checked = false;
+  document.getElementById('archiveFolder').checked = true;
+  setEditorStatus('');
+  updateThumbnailPreview();
+  loadThumbnailAssets(entry);
+}
+
+async function renderArticle(entry) {
   const detail = document.getElementById('detail');
-  detail.innerHTML = '<div class="placeholder">Loading article…</div>';
+  detail.innerHTML = '<div class="placeholder">Loading article...</div>';
 
   const articleUrl = localize(entry.path);
   try {
@@ -236,34 +472,145 @@ async function loadArticle(entry, cardEl) {
     const md = await res.text();
     const baseDir = getBaseDir(articleUrl);
     detail.innerHTML = renderMarkdown(md, baseDir);
-    detail.scrollTop = 0;
+    document.getElementById('detailPane').scrollTop = 0;
   } catch (e) {
     detail.innerHTML = `<div class="error">Failed to load ${escapeHtml(articleUrl)}: ${escapeHtml(e.message)}</div>`;
   }
 }
 
-function renderCards(entries) {
+async function loadArticle(entry, cardEl) {
+  if (activeCardEl) activeCardEl.classList.remove('active');
+  cardEl.classList.add('active');
+  activeCardEl = cardEl;
+  activeEntry = entry;
+
+  populateEditor(entry);
+  await renderArticle(entry);
+}
+
+function populateCard(el, entry) {
+  el.className = 'card' + (isHotfix(entry) ? ' hotfix' : '');
+  const thumbSrc = localize(entry.thumbnail);
+  let thumbHtml = '';
+  if (thumbSrc && !isHotfix(entry)) {
+    thumbHtml = `<img class="card-thumb" src="${escapeAttr(thumbSrc)}" loading="lazy" alt="">`;
+  }
+  el.innerHTML = `
+    ${thumbHtml}
+    <div class="card-title">${escapeHtml(entry.title)}</div>
+    <div class="card-date">${escapeHtml(formatDate(entry.date))}</div>
+    ${entry.description ? `<div class="card-desc">${escapeHtml(entry.description)}</div>` : ''}
+  `;
+}
+
+function renderCards(entries, selectedEntry = activeEntry) {
+  newsEntries = entries;
   const cards = document.getElementById('cards');
   cards.innerHTML = '';
   for (const entry of entries) {
     const el = document.createElement('div');
-    el.className = 'card' + (isHotfix(entry) ? ' hotfix' : '');
-
-    const thumbSrc = localize(entry.thumbnail);
-    let thumbHtml = '';
-    if (thumbSrc && !isHotfix(entry)) {
-      thumbHtml = `<img class="card-thumb" src="${thumbSrc}" loading="lazy" alt="">`;
+    el.tabIndex = 0;
+    el.setAttribute('role', 'button');
+    populateCard(el, entry);
+    if (entry === selectedEntry) {
+      el.classList.add('active');
+      activeCardEl = el;
     }
-    el.innerHTML = `
-      ${thumbHtml}
-      <div class="card-title">${escapeHtml(entry.title)}</div>
-      <div class="card-date">${escapeHtml(formatDate(entry.date))}</div>
-      ${entry.description ? `<div class="card-desc">${escapeHtml(entry.description)}</div>` : ''}
-    `;
     el.addEventListener('click', () => loadArticle(entry, el));
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        loadArticle(entry, el);
+      }
+    });
     cards.appendChild(el);
   }
 }
+
+async function saveActiveEntry(e) {
+  e.preventDefault();
+  if (!activeEntry) return;
+
+  const saveButton = document.getElementById('saveButton');
+  saveButton.disabled = true;
+  setEditorStatus('Saving...');
+
+  try {
+    const file = document.getElementById('thumbnailFile').files[0];
+    const payload = {
+      originalPath: activeEntry.path,
+      title: document.getElementById('editTitle').value,
+      date: document.getElementById('editDate').value,
+      description: document.getElementById('editDescription').value,
+      thumbnail: normalizeThumbnailInput(document.getElementById('editThumbnail').value),
+      updateArticleHeading: document.getElementById('updateArticleHeading').checked
+    };
+
+    if (file) {
+      payload.thumbnailFileName = file.name;
+      payload.thumbnailDataBase64 = await readFileAsDataUrl(file);
+    }
+
+    const result = await apiPost('api/save-entry', payload);
+    Object.assign(activeEntry, result.entry);
+    if (activeCardEl) populateCard(activeCardEl, activeEntry);
+    document.getElementById('thumbnailFile').value = '';
+    document.getElementById('editThumbnail').value = activeEntry.thumbnail || '';
+    updateThumbnailPreview();
+    loadThumbnailAssets(activeEntry);
+    if (result.articleHeadingUpdated) await renderArticle(activeEntry);
+
+    const notes = [];
+    if (result.thumbnailWritten) notes.push('thumbnail copied');
+    if (result.articleHeadingUpdated) notes.push('article heading updated');
+    setEditorStatus(notes.length ? `Saved (${notes.join(', ')}).` : 'Saved.', 'ok');
+  } catch (error) {
+    setEditorStatus(`Save failed: ${error.message}`, 'error');
+  } finally {
+    saveButton.disabled = false;
+  }
+}
+
+async function removeActiveEntry() {
+  if (!activeEntry) return;
+  const archiveFolder = document.getElementById('archiveFolder').checked;
+  const message = archiveFolder
+    ? `Remove "${activeEntry.title}" from news.txt and move its folder to _removed_posts?`
+    : `Remove "${activeEntry.title}" from news.txt?`;
+  if (!confirm(message)) return;
+
+  const removeButton = document.getElementById('removeButton');
+  removeButton.disabled = true;
+  setEditorStatus('Removing...');
+
+  try {
+    const removedEntry = activeEntry;
+    await apiPost('api/remove-entry', { originalPath: removedEntry.path, archiveFolder });
+    const index = newsEntries.indexOf(removedEntry);
+    if (index >= 0) newsEntries.splice(index, 1);
+    activeEntry = null;
+    activeCardEl = null;
+    renderCards(newsEntries, null);
+    document.getElementById('editor').classList.add('hidden');
+    document.getElementById('detail').innerHTML = '<div class="placeholder">Post removed.</div>';
+  } catch (error) {
+    setEditorStatus(`Remove failed: ${error.message}`, 'error');
+  } finally {
+    removeButton.disabled = false;
+  }
+}
+
+document.getElementById('editForm').addEventListener('submit', saveActiveEntry);
+document.getElementById('removeButton').addEventListener('click', removeActiveEntry);
+document.getElementById('editThumbnail').addEventListener('input', updateThumbnailPreview);
+document.getElementById('thumbnailFile').addEventListener('change', updateThumbnailPreview);
+document.getElementById('useAssetButton').addEventListener('click', () => {
+  const value = document.getElementById('thumbnailAssets').value;
+  if (!value) return;
+  document.getElementById('editThumbnail').value = value;
+  document.getElementById('thumbnailFile').value = '';
+  updateThumbnailPreview();
+});
 
 (async () => {
   try {
