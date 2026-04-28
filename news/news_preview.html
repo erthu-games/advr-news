@@ -146,11 +146,56 @@
   button.primary { background: #3a3a16; border-color: #716f10; color: #f1ef7a; }
   button.danger { background: #3b1f1f; border-color: var(--danger); color: #ffb2b2; }
   button:disabled { opacity: .5; cursor: default; }
+  .audit-summary { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+  .audit-summary.ok { color: var(--ok); }
+  .audit-summary.error { color: #ff8a8a; }
+  .audit-list { display: grid; gap: 8px; max-height: 260px; overflow-y: auto; }
+  .audit-item {
+    display: grid;
+    grid-template-columns: 86px minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid var(--border);
+    background: #181818;
+    border-radius: 5px;
+    padding: 8px;
+  }
+  .audit-item img {
+    width: 86px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
+    border-radius: 3px;
+  }
+  .audit-title { font-weight: 600; font-size: 13px; margin-bottom: 3px; }
+  .audit-meta { color: var(--muted); font-size: 12px; }
+  .crop-preview-panel {
+    border: 1px solid var(--border);
+    background: #181818;
+    border-radius: 6px;
+    padding: 14px;
+    margin-top: 12px;
+  }
+  .crop-preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .crop-preview-grid span { display: block; color: var(--muted); font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+  .crop-preview-grid img {
+    width: 100%;
+    height: auto;
+    max-height: 240px;
+    object-fit: contain;
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .crop-meta { color: var(--muted); font-size: 12px; margin-top: 10px; }
   @media (max-width: 980px) {
     main { grid-template-columns: 1fr; height: auto; }
     #cards { max-height: 46vh; border-right: 0; border-bottom: 1px solid var(--border); }
     #detailPane { padding: 20px; }
     .form-grid, .thumbnail-tools { grid-template-columns: 1fr; }
+    .audit-item { grid-template-columns: 72px minmax(0, 1fr); }
+    .audit-item button { grid-column: 1 / -1; }
+    .crop-preview-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -162,6 +207,36 @@
 <main>
   <div id="cards"><div class="placeholder">Loading news index…</div></div>
   <div id="detailPane">
+    <section id="thumbnailAudit" class="editor">
+      <div class="editor-head">
+        <h2>Thumbnail warnings</h2>
+        <div class="actions" style="margin-top:0">
+          <button id="scanThumbnailsButton" type="button">Scan thumbnails</button>
+        </div>
+      </div>
+      <div id="thumbnailAuditStatus" class="audit-summary">Scan thumbnails to find images that are not 16:9.</div>
+      <div id="thumbnailAuditList" class="audit-list"></div>
+      <div id="cropPreviewPanel" class="crop-preview-panel hidden">
+        <div class="editor-head">
+          <h2 id="cropPreviewTitle">Crop preview</h2>
+          <button id="closeCropPreviewButton" type="button">Close</button>
+        </div>
+        <div class="crop-preview-grid">
+          <div>
+            <span>Current thumbnail</span>
+            <img id="cropOriginalImage" alt="">
+          </div>
+          <div>
+            <span>Center crop to 16:9</span>
+            <img id="cropResultImage" alt="">
+          </div>
+        </div>
+        <div id="cropPreviewMeta" class="crop-meta"></div>
+        <div class="actions">
+          <button id="applyCropButton" class="primary" type="button">Apply crop</button>
+        </div>
+      </div>
+    </section>
     <section id="editor" class="editor hidden">
       <div class="editor-head">
         <h2>Edit selected post</h2>
@@ -210,12 +285,22 @@ const RAW_PREFIX = 'https://raw.githubusercontent.com/erthu-games/advr-news/refs
 let newsEntries = [];
 let activeEntry = null;
 let activeCardEl = null;
+let thumbnailAuditItems = [];
+let activeCropItem = null;
+const thumbnailCacheBust = new Map();
 
 // Strip the github raw prefix so URLs become relative to this HTML's location.
 function localize(url) {
   if (!url) return url;
   if (url.startsWith(RAW_PREFIX)) return url.substring(RAW_PREFIX.length);
   return url;
+}
+
+function thumbnailSrc(url) {
+  const src = localize(url);
+  const version = thumbnailCacheBust.get(url);
+  if (!src || !version) return src;
+  return src + (src.includes('?') ? '&' : '?') + 'v=' + version;
 }
 
 function apiUrl(path) {
@@ -406,7 +491,7 @@ function updateThumbnailPreview() {
     return;
   }
 
-  preview.src = localize(normalizeThumbnailInput(inputValue));
+  preview.src = thumbnailSrc(normalizeThumbnailInput(inputValue));
   preview.classList.remove('hidden');
 }
 
@@ -490,7 +575,7 @@ async function loadArticle(entry, cardEl) {
 
 function populateCard(el, entry) {
   el.className = 'card' + (isHotfix(entry) ? ' hotfix' : '');
-  const thumbSrc = localize(entry.thumbnail);
+  const thumbSrc = thumbnailSrc(entry.thumbnail);
   let thumbHtml = '';
   if (thumbSrc && !isHotfix(entry)) {
     thumbHtml = `<img class="card-thumb" src="${escapeAttr(thumbSrc)}" loading="lazy" alt="">`;
@@ -501,6 +586,112 @@ function populateCard(el, entry) {
     <div class="card-date">${escapeHtml(formatDate(entry.date))}</div>
     ${entry.description ? `<div class="card-desc">${escapeHtml(entry.description)}</div>` : ''}
   `;
+}
+
+function setThumbnailAuditStatus(message, type = '') {
+  const status = document.getElementById('thumbnailAuditStatus');
+  status.textContent = message || '';
+  status.className = 'audit-summary' + (type ? ` ${type}` : '');
+}
+
+function hideCropPreview() {
+  activeCropItem = null;
+  document.getElementById('cropPreviewPanel').classList.add('hidden');
+  document.getElementById('cropOriginalImage').removeAttribute('src');
+  document.getElementById('cropResultImage').removeAttribute('src');
+}
+
+function renderThumbnailAuditItems(items) {
+  const list = document.getElementById('thumbnailAuditList');
+  list.innerHTML = '';
+
+  if (items.length === 0) {
+    list.innerHTML = '<div class="placeholder" style="padding:12px">All indexed thumbnails with local files are 16:9.</div>';
+    return;
+  }
+
+  for (const item of items) {
+    const el = document.createElement('div');
+    el.className = 'audit-item';
+
+    const imgSrc = thumbnailSrc(item.thumbnail);
+    const dimensions = item.width && item.height
+      ? `${item.width} x ${item.height} -> ${item.cropWidth} x ${item.cropHeight}`
+      : item.issue;
+    const buttonHtml = item.canCrop
+      ? '<button type="button">Preview crop</button>'
+      : '<button type="button" disabled>Cannot crop</button>';
+
+    el.innerHTML = `
+      ${imgSrc ? `<img src="${escapeAttr(imgSrc)}" alt="">` : '<div></div>'}
+      <div>
+        <div class="audit-title">${escapeHtml(item.title)}</div>
+        <div class="audit-meta">${escapeHtml(dimensions)}</div>
+        <div class="audit-meta">${escapeHtml(item.issue)}</div>
+      </div>
+      ${buttonHtml}
+    `;
+
+    const button = el.querySelector('button');
+    if (item.canCrop) button.addEventListener('click', () => showCropPreview(item));
+    list.appendChild(el);
+  }
+}
+
+async function scanThumbnailAudit() {
+  const button = document.getElementById('scanThumbnailsButton');
+  button.disabled = true;
+  hideCropPreview();
+  setThumbnailAuditStatus('Scanning thumbnails...');
+  document.getElementById('thumbnailAuditList').innerHTML = '';
+
+  try {
+    const result = await apiGet('api/thumbnail-audit');
+    thumbnailAuditItems = result.items || [];
+    const croppable = thumbnailAuditItems.filter(item => item.canCrop).length;
+    setThumbnailAuditStatus(`${thumbnailAuditItems.length} thumbnail warning${thumbnailAuditItems.length === 1 ? '' : 's'} found. ${croppable} can be center-cropped automatically.`);
+    renderThumbnailAuditItems(thumbnailAuditItems);
+  } catch (error) {
+    setThumbnailAuditStatus(`Scan failed: ${error.message}`, 'error');
+  } finally {
+    button.disabled = false;
+  }
+}
+
+function showCropPreview(item) {
+  activeCropItem = item;
+  const previewUrl = `api/thumbnail-crop-preview?thumbnail=${encodeURIComponent(item.thumbnail)}&v=${Date.now()}`;
+  document.getElementById('cropPreviewTitle').textContent = item.title;
+  document.getElementById('cropOriginalImage').src = thumbnailSrc(item.thumbnail);
+  document.getElementById('cropResultImage').src = previewUrl;
+  document.getElementById('cropPreviewMeta').textContent = `${item.width} x ${item.height} will become ${item.cropWidth} x ${item.cropHeight}. The crop is centered.`;
+  document.getElementById('cropPreviewPanel').classList.remove('hidden');
+  document.getElementById('cropPreviewPanel').scrollIntoView({ block: 'nearest' });
+}
+
+async function applyActiveCrop() {
+  if (!activeCropItem) return;
+  const button = document.getElementById('applyCropButton');
+  button.disabled = true;
+  setThumbnailAuditStatus('Applying crop...');
+
+  try {
+    const result = await apiPost('api/crop-thumbnail', { thumbnail: activeCropItem.thumbnail });
+    thumbnailCacheBust.set(activeCropItem.thumbnail, Date.now());
+
+    if (activeEntry && activeEntry.thumbnail === activeCropItem.thumbnail) {
+      updateThumbnailPreview();
+    }
+    renderCards(newsEntries, activeEntry);
+    thumbnailAuditItems = thumbnailAuditItems.filter(item => item !== activeCropItem);
+    hideCropPreview();
+    renderThumbnailAuditItems(thumbnailAuditItems);
+    setThumbnailAuditStatus(`Cropped thumbnail to ${result.width} x ${result.height}.`, 'ok');
+  } catch (error) {
+    setThumbnailAuditStatus(`Crop failed: ${error.message}`, 'error');
+  } finally {
+    button.disabled = false;
+  }
 }
 
 function renderCards(entries, selectedEntry = activeEntry) {
@@ -604,6 +795,9 @@ document.getElementById('editForm').addEventListener('submit', saveActiveEntry);
 document.getElementById('removeButton').addEventListener('click', removeActiveEntry);
 document.getElementById('editThumbnail').addEventListener('input', updateThumbnailPreview);
 document.getElementById('thumbnailFile').addEventListener('change', updateThumbnailPreview);
+document.getElementById('scanThumbnailsButton').addEventListener('click', scanThumbnailAudit);
+document.getElementById('closeCropPreviewButton').addEventListener('click', hideCropPreview);
+document.getElementById('applyCropButton').addEventListener('click', applyActiveCrop);
 document.getElementById('useAssetButton').addEventListener('click', () => {
   const value = document.getElementById('thumbnailAssets').value;
   if (!value) return;
@@ -619,6 +813,7 @@ document.getElementById('useAssetButton').addEventListener('click', () => {
     const text = await res.text();
     const entries = parseNewsIndex(text);
     renderCards(entries);
+    scanThumbnailAudit();
   } catch (e) {
     document.getElementById('cards').innerHTML =
       `<div class="error">Failed to load news.txt: ${escapeHtml(e.message)}<br><br>` +

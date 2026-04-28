@@ -6,6 +6,9 @@ $port = $startPort
 $prefix = $null
 $rawPrefix = 'https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/'
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+$targetThumbnailRatio = [double](16.0 / 9.0)
+
+Add-Type -AssemblyName System.Drawing
 
 $mime = @{
     '.html' = 'text/html; charset=utf-8'
@@ -117,6 +120,26 @@ function Get-NewsBlockFields([string]$block) {
         }
     }
     return $fields
+}
+
+function Get-NewsIndexEntries() {
+    $newsPath = Join-Path $root 'news.txt'
+    $text = [System.IO.File]::ReadAllText($newsPath, [System.Text.Encoding]::UTF8)
+    $entries = New-Object System.Collections.Generic.List[object]
+
+    foreach ($block in (Split-NewsBlocks $text)) {
+        $fields = Get-NewsBlockFields $block
+        if (-not $fields['TITLE']) { continue }
+        $entries.Add(@{
+            title = [string]$fields['TITLE']
+            date = [string]$fields['DATE']
+            description = [string]$fields['DESCRIPTION']
+            thumbnail = [string]$fields['THUMBNAIL']
+            path = [string]$fields['PATH']
+        })
+    }
+
+    return $entries
 }
 
 function Write-NewsBlocks($blocks, [string]$newline) {
@@ -298,12 +321,167 @@ function Get-ArticleAssets($articlePath) {
     return @{ ok = $true; assets = @($assets) }
 }
 
+function Resolve-LocalThumbnailPath([string]$thumbnail) {
+    if ([string]::IsNullOrWhiteSpace($thumbnail)) { throw 'This entry has no thumbnail.' }
+    if ($thumbnail -match '^https?:' -and -not $thumbnail.StartsWith($rawPrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw 'Only thumbnails inside the local news folder can be cropped.'
+    }
+
+    $resolved = Resolve-NewsPath $thumbnail -PathMustExist
+    if (-not (Test-Path -LiteralPath $resolved.FullPath -PathType Leaf)) {
+        throw "Thumbnail file not found: $thumbnail"
+    }
+
+    $extension = [System.IO.Path]::GetExtension($resolved.FullPath).ToLowerInvariant()
+    if ($extension -notin @('.jpg', '.jpeg', '.png')) {
+        throw 'Only .jpg, .jpeg, and .png thumbnails can be cropped.'
+    }
+
+    return $resolved
+}
+
+function Get-ImageInfo([string]$path) {
+    $image = $null
+    try {
+        $image = [System.Drawing.Image]::FromFile($path)
+        return @{ width = $image.Width; height = $image.Height }
+    } finally {
+        if ($image) { $image.Dispose() }
+    }
+}
+
+function Get-CropRectangle([int]$width, [int]$height) {
+    $scale = [Math]::Min([Math]::Floor($width / 16.0), [Math]::Floor($height / 9.0))
+    if ($scale -lt 1) {
+        throw "Image is too small to crop to 16:9: ${width}x${height}"
+    }
+
+    $cropWidth = [int]($scale * 16)
+    $cropHeight = [int]($scale * 9)
+    $cropX = [int][Math]::Floor(($width - $cropWidth) / 2)
+    $cropY = [int][Math]::Floor(($height - $cropHeight) / 2)
+
+    return New-Object System.Drawing.Rectangle -ArgumentList $cropX, $cropY, $cropWidth, $cropHeight
+}
+
+function New-CroppedThumbnailBytes([string]$thumbnailPath, [string]$extension) {
+    $source = $null
+    $target = $null
+    $graphics = $null
+    $stream = New-Object System.IO.MemoryStream
+
+    try {
+        $source = [System.Drawing.Image]::FromFile($thumbnailPath)
+        $crop = Get-CropRectangle $source.Width $source.Height
+        $target = New-Object System.Drawing.Bitmap -ArgumentList $crop.Width, $crop.Height
+        $target.SetResolution($source.HorizontalResolution, $source.VerticalResolution)
+        $graphics = [System.Drawing.Graphics]::FromImage($target)
+        $graphics.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
+        $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+        $graphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
+        $targetRectangle = New-Object System.Drawing.Rectangle -ArgumentList 0, 0, $crop.Width, $crop.Height
+        $graphics.DrawImage($source, $targetRectangle, $crop, [System.Drawing.GraphicsUnit]::Pixel)
+
+        if ($extension -eq '.png') {
+            $target.Save($stream, [System.Drawing.Imaging.ImageFormat]::Png)
+            $contentType = 'image/png'
+        } else {
+            $target.Save($stream, [System.Drawing.Imaging.ImageFormat]::Jpeg)
+            $contentType = 'image/jpeg'
+        }
+
+        return @{ bytes = $stream.ToArray(); contentType = $contentType; width = $crop.Width; height = $crop.Height }
+    } finally {
+        if ($graphics) { $graphics.Dispose() }
+        if ($target) { $target.Dispose() }
+        if ($source) { $source.Dispose() }
+        $stream.Dispose()
+    }
+}
+
+function Get-ThumbnailAudit() {
+    $items = New-Object System.Collections.Generic.List[object]
+    foreach ($entry in (Get-NewsIndexEntries)) {
+        if ([string]::IsNullOrWhiteSpace($entry.thumbnail)) { continue }
+
+        $item = @{
+            title = $entry.title
+            path = $entry.path
+            thumbnail = $entry.thumbnail
+            localThumbnail = $null
+            width = 0
+            height = 0
+            ratio = 0
+            targetRatio = [double]$targetThumbnailRatio
+            cropWidth = 0
+            cropHeight = 0
+            issue = $null
+            canCrop = $false
+        }
+
+        try {
+            $resolved = Resolve-LocalThumbnailPath $entry.thumbnail
+            $info = Get-ImageInfo $resolved.FullPath
+            $crop = Get-CropRectangle $info.width $info.height
+            $ratio = $info.width / [double]$info.height
+            $isExact = ($info.width * 9) -eq ($info.height * 16)
+
+            $item.localThumbnail = $resolved.RelativePath
+            $item.width = $info.width
+            $item.height = $info.height
+            $item.ratio = [Math]::Round($ratio, 4)
+            $item.cropWidth = $crop.Width
+            $item.cropHeight = $crop.Height
+            $item.canCrop = $true
+            if (-not $isExact) { $item.issue = 'Thumbnail is not 16:9.' }
+        } catch {
+            $item.issue = $_.Exception.Message
+        }
+
+        if ($item.issue) { $items.Add($item) }
+    }
+
+    return @{ ok = $true; targetRatio = [double]$targetThumbnailRatio; items = $items.ToArray() }
+}
+
+function Send-ThumbnailCropPreview($res, [string]$thumbnail) {
+    $resolved = Resolve-LocalThumbnailPath $thumbnail
+    $extension = [System.IO.Path]::GetExtension($resolved.FullPath).ToLowerInvariant()
+    $cropped = New-CroppedThumbnailBytes $resolved.FullPath $extension
+    Send-Bytes $res 200 $cropped.contentType $cropped.bytes
+}
+
+function Apply-ThumbnailCrop($body) {
+    $resolved = Resolve-LocalThumbnailPath ([string]$body.thumbnail)
+    $extension = [System.IO.Path]::GetExtension($resolved.FullPath).ToLowerInvariant()
+    $cropped = New-CroppedThumbnailBytes $resolved.FullPath $extension
+    [System.IO.File]::WriteAllBytes($resolved.FullPath, $cropped.bytes)
+
+    return @{
+        ok = $true
+        thumbnail = [string]$body.thumbnail
+        localThumbnail = $resolved.RelativePath
+        width = $cropped.width
+        height = $cropped.height
+    }
+}
+
 function Handle-ApiRequest($req, $res) {
     $path = $req.Url.AbsolutePath.TrimEnd('/')
     if ($path -eq '') { $path = '/' }
 
     if ($req.HttpMethod -eq 'GET' -and $path -eq '/api/assets') {
         Send-Json $res 200 (Get-ArticleAssets $req.QueryString['path'])
+        return
+    }
+
+    if ($req.HttpMethod -eq 'GET' -and $path -eq '/api/thumbnail-audit') {
+        Send-Json $res 200 (Get-ThumbnailAudit)
+        return
+    }
+
+    if ($req.HttpMethod -eq 'GET' -and $path -eq '/api/thumbnail-crop-preview') {
+        Send-ThumbnailCropPreview $res $req.QueryString['thumbnail']
         return
     }
 
@@ -321,6 +499,7 @@ function Handle-ApiRequest($req, $res) {
     switch ($path) {
         '/api/save-entry' { Send-Json $res 200 (Save-NewsEntry $body); return }
         '/api/remove-entry' { Send-Json $res 200 (Remove-NewsEntry $body); return }
+        '/api/crop-thumbnail' { Send-Json $res 200 (Apply-ThumbnailCrop $body); return }
         default { Send-Json $res 404 @{ ok = $false; error = 'Unknown API endpoint.' }; return }
     }
 }
