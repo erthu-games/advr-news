@@ -7,6 +7,15 @@ $prefix = $null
 $rawPrefix = 'https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/'
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $targetThumbnailRatio = [double](16.0 / 9.0)
+# Path to the Python helper that owns image optimization, GIF -> MP4 conversion,
+# thumbnail generation and the news.txt insert. The /api/create-post endpoint
+# shells out to this script so the optimization rules stay in one place.
+# The path can be overridden with the ADVR_CREATE_NEWS_POST env var.
+$createNewsPostScript = if ($env:ADVR_CREATE_NEWS_POST) {
+    $env:ADVR_CREATE_NEWS_POST
+} else {
+    Join-Path $root '..\..\..\Ancient_Dungeon\Rogue3DVr\Tools\create_news_post.py'
+}
 
 Add-Type -AssemblyName System.Drawing
 
@@ -466,6 +475,143 @@ function Apply-ThumbnailCrop($body) {
     }
 }
 
+function Resolve-PythonExecutable() {
+    # Returns [string[]]: [exe, optional_arg1, ...]. Always wrap with the comma
+    # operator so single-element arrays don't get unwrapped to a bare string by
+    # the caller (`$python[0]` would then index the first character).
+
+    if ($env:ADVR_PYTHON) {
+        if (Test-Path -LiteralPath $env:ADVR_PYTHON -PathType Leaf) {
+            return ,@([string]$env:ADVR_PYTHON)
+        }
+        throw "ADVR_PYTHON points to a missing file: $($env:ADVR_PYTHON)"
+    }
+
+    foreach ($candidate in @('python.exe', 'python3.exe', 'py.exe', 'python', 'python3', 'py')) {
+        $cmd = Get-Command $candidate -ErrorAction SilentlyContinue
+        if ($cmd -and $cmd.Source -and (Test-Path -LiteralPath $cmd.Source -PathType Leaf)) {
+            # Only the py.exe launcher accepts the -3 selector; python.exe doesn't.
+            $leaf = [System.IO.Path]::GetFileNameWithoutExtension($cmd.Source).ToLowerInvariant()
+            if ($leaf -eq 'py') { return ,@([string]$cmd.Source, '-3') }
+            return ,@([string]$cmd.Source)
+        }
+    }
+    throw 'Python is required to create posts but was not found on PATH. Install Python 3 (https://www.python.org/) and make sure "python" or "py" works in a new PowerShell window. You can also point ADVR_PYTHON at a python.exe.'
+}
+
+function New-NewsPost($body) {
+    if (-not (Test-Path -LiteralPath $createNewsPostScript -PathType Leaf)) {
+        throw "create_news_post.py not found at: $createNewsPostScript. Set the ADVR_CREATE_NEWS_POST env var to its full path."
+    }
+
+    $title = ([string]$body.title).Trim()
+    $date = ([string]$body.date).Trim()
+    $markdown = [string]$body.markdown
+    if ([string]::IsNullOrWhiteSpace($title))    { throw 'Title is required.' }
+    if ([string]::IsNullOrWhiteSpace($date))     { throw 'Date is required.' }
+    if ([string]::IsNullOrWhiteSpace($markdown)) { throw 'Markdown body is required.' }
+
+    $description = ([string]$body.description).Trim()
+    $slug        = ([string]$body.slug).Trim()
+    $thumbnailFileName = ([string]$body.thumbnailFileName).Trim()
+    $force       = [bool]$body.force
+
+    # Stage everything (markdown + uploaded images) in a temp folder so the
+    # python script's relative-path image resolver finds them.
+    $tempDir = Join-Path ([System.IO.Path]::GetTempPath()) ('advr_newpost_' + [guid]::NewGuid().ToString('N'))
+    New-Item -ItemType Directory -Path $tempDir | Out-Null
+    $thumbnailPath = $null
+
+    try {
+        $markdownPath = Join-Path $tempDir 'post.md'
+        [System.IO.File]::WriteAllText($markdownPath, $markdown, $utf8NoBom)
+
+        if ($body.images) {
+            foreach ($image in $body.images) {
+                $name = Get-SafeFileName ([string]$image.name)
+                $data = [string]$image.dataBase64
+                $data = $data -replace '^data:.*?;base64,', ''
+                $bytes = [System.Convert]::FromBase64String($data)
+                $target = Join-Path $tempDir $name
+                [System.IO.File]::WriteAllBytes($target, $bytes)
+                if ($thumbnailFileName -and $name -eq (Get-SafeFileName $thumbnailFileName)) {
+                    $thumbnailPath = $target
+                }
+            }
+        }
+
+        $python = Resolve-PythonExecutable
+        $pyArgs = New-Object System.Collections.Generic.List[string]
+        foreach ($p in $python | Select-Object -Skip 1) { $pyArgs.Add($p) }
+        $pyArgs.Add((Resolve-Path -LiteralPath $createNewsPostScript).Path)
+        $pyArgs.Add($markdownPath)
+        $pyArgs.Add('--title');       $pyArgs.Add($title)
+        $pyArgs.Add('--date');        $pyArgs.Add($date)
+        if ($description)       { $pyArgs.Add('--description'); $pyArgs.Add($description) }
+        if ($slug)              { $pyArgs.Add('--slug');        $pyArgs.Add($slug) }
+        if ($thumbnailPath)     { $pyArgs.Add('--thumbnail');   $pyArgs.Add($thumbnailPath) }
+        if ($force)             { $pyArgs.Add('--force') }
+
+        # Build a properly-quoted command line manually. We use System.Diagnostics.Process
+        # rather than Start-Process so spaces in arguments survive (Start-Process
+        # silently breaks on those) and so we get a clean Win32Exception with the
+        # actual exe path on failure.
+        function Quote-Arg([string]$a) {
+            if ($a -eq '' -or $a -match '[\s"]') {
+                # Escape backslashes preceding a quote, then escape quotes.
+                $escaped = $a -replace '(\\*)"','$1$1\"'
+                $escaped = $escaped -replace '(\\+)$','$1$1'
+                return '"' + $escaped + '"'
+            }
+            return $a
+        }
+
+        $psi = New-Object System.Diagnostics.ProcessStartInfo
+        $psi.FileName = $python[0]
+        $psi.Arguments = ($pyArgs | ForEach-Object { Quote-Arg $_ }) -join ' '
+        $psi.UseShellExecute = $false
+        $psi.RedirectStandardOutput = $true
+        $psi.RedirectStandardError = $true
+        $psi.CreateNoWindow = $true
+        $psi.WorkingDirectory = $tempDir
+
+        Write-Host ("[create-post] running: {0} {1}" -f $psi.FileName, $psi.Arguments) -ForegroundColor DarkCyan
+
+        $proc = $null
+        try {
+            $proc = [System.Diagnostics.Process]::Start($psi)
+        } catch [System.ComponentModel.Win32Exception] {
+            throw "Failed to launch Python at '$($psi.FileName)': $($_.Exception.Message). If this path is wrong, set the ADVR_PYTHON env var to your python.exe."
+        }
+
+        $stdout = $proc.StandardOutput.ReadToEnd()
+        $stderr = $proc.StandardError.ReadToEnd()
+        $proc.WaitForExit()
+
+        if ($proc.ExitCode -ne 0) {
+            $msg = $stderr
+            if ([string]::IsNullOrWhiteSpace($msg)) { $msg = $stdout }
+            if ([string]::IsNullOrWhiteSpace($msg)) { $msg = "create_news_post.py exited with code $($proc.ExitCode)." }
+            throw $msg.Trim()
+        }
+
+        # Find the entry we just inserted (always at the top of news.txt) so the
+        # frontend can highlight it without re-parsing on its own.
+        $entries = Get-NewsIndexEntries
+        $newEntry = $null
+        foreach ($entry in $entries) {
+            if ($entry.title -eq $title -and $entry.date -eq $date) {
+                $newEntry = $entry
+                break
+            }
+        }
+
+        return @{ ok = $true; entry = $newEntry; log = $stdout.Trim() }
+    } finally {
+        try { Remove-Item -LiteralPath $tempDir -Recurse -Force -ErrorAction SilentlyContinue } catch {}
+    }
+}
+
 function Handle-ApiRequest($req, $res) {
     $path = $req.Url.AbsolutePath.TrimEnd('/')
     if ($path -eq '') { $path = '/' }
@@ -500,6 +646,7 @@ function Handle-ApiRequest($req, $res) {
         '/api/save-entry' { Send-Json $res 200 (Save-NewsEntry $body); return }
         '/api/remove-entry' { Send-Json $res 200 (Remove-NewsEntry $body); return }
         '/api/crop-thumbnail' { Send-Json $res 200 (Apply-ThumbnailCrop $body); return }
+        '/api/create-post' { Send-Json $res 200 (New-NewsPost $body); return }
         default { Send-Json $res 404 @{ ok = $false; error = 'Unknown API endpoint.' }; return }
     }
 }

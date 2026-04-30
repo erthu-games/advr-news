@@ -188,6 +188,45 @@
     border-radius: 4px;
   }
   .crop-meta { color: var(--muted); font-size: 12px; margin-top: 10px; }
+  .md-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  .md-split textarea {
+    min-height: 360px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .md-split textarea.dragover {
+    outline: 2px dashed var(--yellow);
+    outline-offset: -4px;
+  }
+  .md-preview {
+    border: 1px solid var(--border);
+    background: #151515;
+    border-radius: 4px;
+    padding: 10px 14px;
+    overflow-y: auto;
+    max-height: 480px;
+    min-height: 360px;
+    font-size: 14px;
+  }
+  .md-preview h1, .md-preview h2, .md-preview h3 { color: var(--text); margin-top: 14px; }
+  .md-preview h1 { font-size: 20px; }
+  .md-preview h2 { font-size: 17px; }
+  .md-preview h3 { font-size: 15px; }
+  .md-preview img, .md-preview video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 4px;
+  }
+  .md-preview ul { padding-left: 20px; }
+  .md-preview p { line-height: 1.5; }
   @media (max-width: 980px) {
     main { grid-template-columns: 1fr; height: auto; }
     #cards { max-height: 46vh; border-right: 0; border-bottom: 1px solid var(--border); }
@@ -196,6 +235,7 @@
     .audit-item { grid-template-columns: 72px minmax(0, 1fr); }
     .audit-item button { grid-column: 1 / -1; }
     .crop-preview-grid { grid-template-columns: 1fr; }
+    .md-split { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -205,8 +245,61 @@
   <span class="info">Local emulation of the in-game news board. Click a card to view its article.</span>
 </header>
 <main>
-  <div id="cards"><div class="placeholder">Loading news index…</div></div>
+  <div id="cards">
+    <div class="actions" style="margin-bottom:12px">
+      <button id="newPostButton" type="button" class="primary" style="width:100%">+ New post</button>
+    </div>
+    <div id="cardsList"><div class="placeholder">Loading news index…</div></div>
+  </div>
   <div id="detailPane">
+    <section id="newPostEditor" class="editor hidden">
+      <div class="editor-head">
+        <h2>Create a new post</h2>
+        <div id="newPostStatus" class="editor-status"></div>
+      </div>
+      <form id="newPostForm">
+        <div class="form-grid">
+          <label>Title
+            <input id="newTitle" type="text" required>
+          </label>
+          <label>Date
+            <input id="newDate" type="date" required>
+          </label>
+        </div>
+        <div class="form-grid">
+          <label>Slug (optional, auto from title)
+            <input id="newSlug" type="text" placeholder="e.g. major_update_1_0">
+          </label>
+          <label class="check" style="align-self:end; margin-bottom:10px">
+            <input id="newForce" type="checkbox">Overwrite if folder exists
+          </label>
+        </div>
+        <label>Description (optional, auto from first text line)
+          <textarea id="newDescription"></textarea>
+        </label>
+        <label>Markdown body
+          <div class="md-split">
+            <textarea id="newMarkdown" required
+              placeholder="## My update title&#10;&#10;Hello adventurers!&#10;&#10;Drag images/GIFs/videos here to insert them.&#10;&#10;## Changes&#10;- Added cool stuff"></textarea>
+            <div id="newMarkdownPreview" class="md-preview">
+              <div class="placeholder" style="padding:12px">Start typing to see a live preview.</div>
+            </div>
+          </div>
+          <div id="newMarkdownDropHint" class="audit-meta">Tip: drag and drop images/GIFs/MP4s onto the textarea (or paste from clipboard) to insert them.</div>
+        </label>
+        <label>Images referenced in the markdown
+          <input id="newImages" type="file" accept="image/*,video/*" multiple>
+        </label>
+        <div id="newImagesList" class="audit-meta" style="margin-top:6px"></div>
+        <label>Thumbnail (optional, defaults to first non-GIF image)
+          <select id="newThumbnailSelect"><option value="">(auto)</option></select>
+        </label>
+        <div class="actions">
+          <button id="newSaveButton" class="primary" type="submit">Create post</button>
+          <button id="newCancelButton" type="button">Cancel</button>
+        </div>
+      </form>
+    </section>
     <section id="thumbnailAudit" class="editor">
       <div class="editor-head">
         <h2>Thumbnail warnings</h2>
@@ -378,7 +471,7 @@ function renderInline(text) {
   return s;
 }
 
-function renderMarkdown(md, baseDir) {
+function renderMarkdown(md, baseDir, resolveLocal) {
   const lines = md.split(/\r?\n/);
   let html = '';
   let listOpen = false;
@@ -405,9 +498,19 @@ function renderMarkdown(md, baseDir) {
       flushPara(); closeList();
       let src = imgMatch[1].trim();
       if (!src) continue;
-      if (!/^https?:/i.test(src)) src = baseDir + src;
-      else src = localize(src);
-      if (/\.mp4($|\?)/i.test(src)) {
+      let isVideo = /\.(mp4|webm|mov)($|\?)/i.test(src);
+      if (/^https?:/i.test(src)) {
+        src = localize(src);
+      } else {
+        const resolved = resolveLocal ? resolveLocal(src) : null;
+        if (resolved) {
+          src = resolved.url;
+          isVideo = isVideo || resolved.isVideo;
+        } else {
+          src = baseDir + src;
+        }
+      }
+      if (isVideo) {
         html += `<video src="${escapeAttr(src)}" autoplay loop muted playsinline></video>`;
       } else {
         html += `<img src="${escapeAttr(src)}" alt="">`;
@@ -569,6 +672,7 @@ async function loadArticle(entry, cardEl) {
   activeCardEl = cardEl;
   activeEntry = entry;
 
+  document.getElementById('newPostEditor').classList.add('hidden');
   populateEditor(entry);
   await renderArticle(entry);
 }
@@ -696,7 +800,7 @@ async function applyActiveCrop() {
 
 function renderCards(entries, selectedEntry = activeEntry) {
   newsEntries = entries;
-  const cards = document.getElementById('cards');
+  const cards = document.getElementById('cardsList');
   cards.innerHTML = '';
   for (const entry of entries) {
     const el = document.createElement('div');
@@ -806,6 +910,259 @@ document.getElementById('useAssetButton').addEventListener('click', () => {
   updateThumbnailPreview();
 });
 
+// ---------------------------------------------------------------------------
+// New Post editor
+// ---------------------------------------------------------------------------
+// Files keyed by their final filename in the post folder. The same map is the
+// source of truth for: the preview's blob URLs, the upload payload, and the
+// thumbnail dropdown. Files come from three places: the file picker, drag/drop
+// onto the textarea, and clipboard paste.
+const newPostFiles = new Map(); // name -> { file, url }
+
+function setNewPostStatus(message, type = '') {
+  const status = document.getElementById('newPostStatus');
+  status.textContent = message || '';
+  status.className = 'editor-status' + (type ? ` ${type}` : '');
+}
+
+function sanitizeFilename(name) {
+  // Mirror the server-side Get-SafeFileName / safe_image_name logic so the
+  // names we render in the preview match the names that end up on disk.
+  let safe = String(name || '').replace(/^.*[\\\/]/, '');
+  safe = safe.replace(/[^A-Za-z0-9._-]/g, '_').replace(/^_+|_+$/g, '');
+  if (!safe) safe = 'image.png';
+  if (!/\.[A-Za-z0-9]+$/.test(safe)) safe += '.png';
+  return safe;
+}
+
+function uniqueFilename(name) {
+  if (!newPostFiles.has(name)) return name;
+  const dot = name.lastIndexOf('.');
+  const base = dot > 0 ? name.substring(0, dot) : name;
+  const ext  = dot > 0 ? name.substring(dot) : '';
+  let n = 1;
+  while (newPostFiles.has(`${base}_${n}${ext}`)) n++;
+  return `${base}_${n}${ext}`;
+}
+
+function refreshNewPostThumbnailOptions() {
+  const select = document.getElementById('newThumbnailSelect');
+  const previousValue = select.value;
+  select.innerHTML = '<option value="">(auto)</option>';
+  for (const name of newPostFiles.keys()) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  }
+  if ([...select.options].some(o => o.value === previousValue)) {
+    select.value = previousValue;
+  }
+  const list = document.getElementById('newImagesList');
+  const count = newPostFiles.size;
+  list.textContent = count
+    ? `${count} file${count === 1 ? '' : 's'}: ${[...newPostFiles.keys()].join(', ')}`
+    : 'No images attached. Drag files onto the editor or use the file picker.';
+}
+
+function clearNewPostFiles() {
+  for (const { url } of newPostFiles.values()) URL.revokeObjectURL(url);
+  newPostFiles.clear();
+  refreshNewPostThumbnailOptions();
+  schedulePreviewRender();
+}
+
+function addNewPostFile(file) {
+  const name = uniqueFilename(sanitizeFilename(file.name));
+  const url = URL.createObjectURL(file);
+  newPostFiles.set(name, { file, url });
+  return name;
+}
+
+function insertAtCursor(textarea, text) {
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+  const value = textarea.value;
+  // Make sure inserted markdown lands on its own line.
+  const before = value.substring(0, start);
+  const after = value.substring(end);
+  const needLeadingNewline = before.length > 0 && !before.endsWith('\n');
+  const needTrailingNewline = after.length > 0 && !after.startsWith('\n');
+  const insertion = (needLeadingNewline ? '\n' : '') + text + (needTrailingNewline ? '\n' : '');
+  textarea.value = before + insertion + after;
+  const cursor = before.length + insertion.length;
+  textarea.selectionStart = textarea.selectionEnd = cursor;
+  textarea.dispatchEvent(new Event('input', { bubbles: true }));
+}
+
+function handleNewPostFiles(files, textarea) {
+  const inserted = [];
+  for (const file of files) {
+    if (!file) continue;
+    const name = addNewPostFile(file);
+    inserted.push(name);
+  }
+  if (inserted.length === 0) return;
+  if (textarea) {
+    const block = inserted.map(n => `![](${n})`).join('\n');
+    insertAtCursor(textarea, block);
+  }
+  refreshNewPostThumbnailOptions();
+  schedulePreviewRender();
+}
+
+function resolveNewPostLocal(src) {
+  const decoded = decodeURIComponent(src);
+  const entry = newPostFiles.get(decoded) || newPostFiles.get(src);
+  if (!entry) return null;
+  const isVideo = /^video\//i.test(entry.file.type) || /\.(mp4|webm|mov)$/i.test(entry.file.name);
+  return { url: entry.url, isVideo };
+}
+
+let previewRenderHandle = null;
+function schedulePreviewRender() {
+  if (previewRenderHandle) return;
+  previewRenderHandle = requestAnimationFrame(() => {
+    previewRenderHandle = null;
+    const md = document.getElementById('newMarkdown').value;
+    const target = document.getElementById('newMarkdownPreview');
+    if (!md.trim()) {
+      target.innerHTML = '<div class="placeholder" style="padding:12px">Start typing to see a live preview.</div>';
+      return;
+    }
+    target.innerHTML = renderMarkdown(md, '', resolveNewPostLocal);
+  });
+}
+
+function showNewPostEditor() {
+  document.getElementById('newPostEditor').classList.remove('hidden');
+  document.getElementById('editor').classList.add('hidden');
+  document.getElementById('detail').innerHTML = '<div class="placeholder">Fill out the form on the right to create a new post.</div>';
+  if (activeCardEl) { activeCardEl.classList.remove('active'); activeCardEl = null; }
+  activeEntry = null;
+  if (!document.getElementById('newDate').value) {
+    document.getElementById('newDate').valueAsDate = new Date();
+  }
+  setNewPostStatus('');
+  schedulePreviewRender();
+  document.getElementById('newPostEditor').scrollIntoView({ block: 'start' });
+}
+
+function hideNewPostEditor() {
+  document.getElementById('newPostEditor').classList.add('hidden');
+}
+
+function readFileAsBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = String(reader.result || '');
+      // Drop the "data:...;base64," prefix; the server strips it anyway, but
+      // keeping the payload smaller is cheaper.
+      const comma = result.indexOf(',');
+      resolve(comma >= 0 ? result.substring(comma + 1) : result);
+    };
+    reader.onerror = () => reject(reader.error || new Error('Failed to read file.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+async function submitNewPost(e) {
+  e.preventDefault();
+  const button = document.getElementById('newSaveButton');
+  button.disabled = true;
+  setNewPostStatus('Creating post (optimizing images, this may take a moment)...');
+
+  try {
+    const images = [];
+    for (const [name, entry] of newPostFiles.entries()) {
+      // Send each file under the same name we used in the markdown so the
+      // python script's relative-path image resolver finds them.
+      const data = await readFileAsBase64(entry.file);
+      images.push({ name, dataBase64: data });
+    }
+
+    const payload = {
+      title: document.getElementById('newTitle').value,
+      date: document.getElementById('newDate').value,
+      slug: document.getElementById('newSlug').value,
+      description: document.getElementById('newDescription').value,
+      markdown: document.getElementById('newMarkdown').value,
+      thumbnailFileName: document.getElementById('newThumbnailSelect').value,
+      force: document.getElementById('newForce').checked,
+      images
+    };
+
+    const result = await apiPost('api/create-post', payload);
+    setNewPostStatus('Post created. Reloading index...', 'ok');
+
+    const res = await fetch('news.txt?_=' + Date.now());
+    const text = await res.text();
+    const entries = parseNewsIndex(text);
+    renderCards(entries, null);
+
+    document.getElementById('newPostForm').reset();
+    clearNewPostFiles();
+    hideNewPostEditor();
+
+    if (result.entry) {
+      const created = entries.find(en => en.path === result.entry.path);
+      const cardEl = document.querySelector('#cardsList .card');
+      if (created && cardEl) loadArticle(created, cardEl);
+    }
+  } catch (error) {
+    setNewPostStatus(`Create failed: ${error.message}`, 'error');
+  } finally {
+    button.disabled = false;
+  }
+}
+
+document.getElementById('newPostButton').addEventListener('click', showNewPostEditor);
+document.getElementById('newCancelButton').addEventListener('click', hideNewPostEditor);
+document.getElementById('newImages').addEventListener('change', (e) => {
+  handleNewPostFiles(Array.from(e.target.files), null);
+  // Reset the picker so re-selecting the same file fires `change` again.
+  e.target.value = '';
+});
+document.getElementById('newPostForm').addEventListener('submit', submitNewPost);
+document.getElementById('newMarkdown').addEventListener('input', schedulePreviewRender);
+
+const newMarkdownTextarea = document.getElementById('newMarkdown');
+newMarkdownTextarea.addEventListener('dragenter', (e) => {
+  if (e.dataTransfer && e.dataTransfer.types.includes('Files')) {
+    e.preventDefault();
+    newMarkdownTextarea.classList.add('dragover');
+  }
+});
+newMarkdownTextarea.addEventListener('dragover', (e) => {
+  if (e.dataTransfer && e.dataTransfer.types.includes('Files')) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'copy';
+  }
+});
+newMarkdownTextarea.addEventListener('dragleave', () => {
+  newMarkdownTextarea.classList.remove('dragover');
+});
+newMarkdownTextarea.addEventListener('drop', (e) => {
+  newMarkdownTextarea.classList.remove('dragover');
+  if (!e.dataTransfer || e.dataTransfer.files.length === 0) return;
+  e.preventDefault();
+  const files = Array.from(e.dataTransfer.files).filter(f =>
+    /^image\//i.test(f.type) || /^video\//i.test(f.type) || /\.(gif|png|jpe?g|webp|mp4|webm|mov)$/i.test(f.name)
+  );
+  handleNewPostFiles(files, newMarkdownTextarea);
+});
+newMarkdownTextarea.addEventListener('paste', (e) => {
+  const items = e.clipboardData ? Array.from(e.clipboardData.items) : [];
+  const files = items
+    .filter(item => item.kind === 'file')
+    .map(item => item.getAsFile())
+    .filter(Boolean);
+  if (files.length === 0) return;
+  e.preventDefault();
+  handleNewPostFiles(files, newMarkdownTextarea);
+});
+
 (async () => {
   try {
     const res = await fetch('news.txt');
@@ -815,7 +1172,7 @@ document.getElementById('useAssetButton').addEventListener('click', () => {
     renderCards(entries);
     scanThumbnailAudit();
   } catch (e) {
-    document.getElementById('cards').innerHTML =
+    document.getElementById('cardsList').innerHTML =
       `<div class="error">Failed to load news.txt: ${escapeHtml(e.message)}<br><br>` +
       `Serve this folder over HTTP (e.g. <code>python -m http.server</code>) so fetch() can read local files.</div>`;
   }

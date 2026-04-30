@@ -1,3 +1,9 @@
+TITLE: The Stay Together Update
+DATE: 2026-04-30
+THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260430_the_stay_together_update/stay_together_update_1440p_thumb.jpg
+DESCRIPTION: Adventurers,
+PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260430_the_stay_together_update/news.md
+---
 TITLE: April Fools, Cosmetics, Fixes and more?!
 DATE: 2026-03-31
 THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260331_april_fools_cosmetics_fixes_and_more/deb285b393770b82533fc9dcd3c0ff579696edb5.jpg
