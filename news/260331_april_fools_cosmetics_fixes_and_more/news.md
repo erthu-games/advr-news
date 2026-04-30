@@ -1,6 +1,6 @@
 ## April Fools, Cosmetics, Fixes and more?!
 
-Adventurers! We got a fresh update rolling out with some long-awaited improvements, new cosmteics, and a few surprises along the way for tomorrow... 
+Adventurers! We got a fresh update rolling out with some long-awaited improvements, new cosmetics, and a few surprises along the way for tomorrow... 
 
 ## Something strange...
 
@@ -15,7 +15,7 @@ Sneak peek:
 Your dungeon cosmetics just got an upgrade. 
 
 - More cosmetics can now be fully colored
-- Certain pieces (like torsos) now uspport multiple color regions
+- Certain pieces (like torsos) now support multiple color regions
 - Improved hair handling across different hat types (The Grand Library has discovered hair spray)
 
  NEW COSMETICS 

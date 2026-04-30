@@ -1,4 +1,4 @@
-- saves now won't get removed when doing a multiplayer run inbetween
+- saves now won't get removed when doing a multiplayer run in between
 - fixed coins and keys sometimes desyncing in multiplayer causing them to float and not able to be picked up
 - fixed marvellous marks description showing on active relics when not bought
 - fixed deranged adventurer stick dealing damage after death

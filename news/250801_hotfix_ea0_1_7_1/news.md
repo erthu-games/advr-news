@@ -8,4 +8,4 @@
 - fixed wand doing swing sounds when doing snap turns
 - fixed wand not always being able to be equipped
 - fixed ghost delves not correctly ending
-- fixed ghosts not talking correct dialogue in sould delves
+- fixed ghosts not talking correct dialogue in soul delves

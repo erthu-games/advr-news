@@ -36,10 +36,10 @@ Thank you for playing and have fun!
 - lots of physics improvements: movement or weapon stutter should not occur anymore
 - hard mode now spawns more enemies
 - optimized several parts of the world generation algorithm to reduce the amount of lag spikes
-- doors will not pop up anymore during generation when entering a next floor, the floor is already generated one the player gets there
+- doors will not pop up anymore during generation when entering a next floor, the floor is already generated once the player gets there
 - improved performance should result in a smoother framerate (especially on Quest)
 - seeds are now completely consistent in the world generator
-- - this includes podest rewards, slot machine outcomes, enemy drops, shop selection and more
+- - this includes pedestal rewards, slot machine outcomes, enemy drops, shop selection and more
 - - be aware, that depending on your progress in the game, the same seed still may look different. For example, players that have secret rooms unlocked will have a different dungeon layout than players that don't have them unlocked yet
 - improved the hold angle settings system
 - cracked mirror now reduces your luck a lot more in exchange for better stats

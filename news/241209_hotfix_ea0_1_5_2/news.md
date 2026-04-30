@@ -11,7 +11,7 @@
 - fixed sharpened eagle talon not working
 - fixed wall arcs over boss doors not having collision
 - fixed challenge chests spawning enemies from the wrong floor
-- fixed crystals in the prisom fight not completely retracting sometimes
+- fixed crystals in the prism fight not completely retracting sometimes
 - added a join discord button instead of just having text
 - fixed an issue with sealed souls ghost fights not working
 - glass cannon now restores to your previous health when it gets removed (dying in multiplayer)

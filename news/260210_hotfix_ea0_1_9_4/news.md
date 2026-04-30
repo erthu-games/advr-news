@@ -19,5 +19,5 @@
 - fixed multiple quests not correctly unlocking when using the save run feature
 - fixed arcane rift softlocking players
 - fixed arcane rift boss routine also running on proxy players
-- fixed some issues with crystal prisom fight
+- fixed some issues with crystal prism fight
 - fixed un-parry-leled not working correctly after a version upgrade

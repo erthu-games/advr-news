@@ -8,7 +8,7 @@ We are currently working on finishing the implementation of the Seer NPC in the 
 
 ![](17a98c774adfee679aefa58287e14c5eab4daf2c.mp4)
 
-In order to unlock new challege runs, you need to defeat the ghost and it's host. These rooms can spawn randomly during a run when certain conditions have been met.
+In order to unlock new challenge runs, you need to defeat the ghost and it's host. These rooms can spawn randomly during a run when certain conditions have been met.
 
 ## Improving Modding Support
 

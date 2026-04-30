@@ -4,7 +4,7 @@ At the moment, multiplayer support is our top priority and receives the most att
 
 Our emphasis on multiplayer is due to several factors. First, according to our Discord poll, the majority of users want to see multiplayer implemented first. Additionally, the multiplayer feature necessitates a substantial overhaul of the codebase, meaning that any updates released between ea0.1.3.5 and the multiplayer update would need to be reworked into the new codebase, creating new development challenges and consuming more time.
 
-As a result, it is likely that the next update will be the multiplayer update, with no other updates inbetween. This approach will enable us to add new content more efficiently once the codebase has been adapted for multiplayer support. Progress on the Points of Interest update will still continue, with the creation of new assets, rooms, and more. This update should follow relatively quickly after the completion of the multiplayer feature.
+As a result, it is likely that the next update will be the multiplayer update, with no other updates in between. This approach will enable us to add new content more efficiently once the codebase has been adapted for multiplayer support. Progress on the Points of Interest update will still continue, with the creation of new assets, rooms, and more. This update should follow relatively quickly after the completion of the multiplayer feature.
 
 Transitioning to Regular Content Updates after Multiplayer
 
