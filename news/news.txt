@@ -1,7 +1,7 @@
 TITLE: The Stay Together Update
 DATE: 2026-04-30
 THUMBNAIL: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260430_the_stay_together_update/stay_together_update_1440p_thumb.jpg
-DESCRIPTION: Adventurers,
+DESCRIPTION: Adventurers, some long requested changes have finally made their way through the dungeon… along with a few new surprises.
 PATH: https://raw.githubusercontent.com/erthu-games/advr-news/refs/heads/master/news/260430_the_stay_together_update/news.md
 ---
 TITLE: April Fools, Cosmetics, Fixes and more?!
