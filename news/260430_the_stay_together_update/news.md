@@ -16,7 +16,7 @@ Saved runs also show who you played with and additional run details.Multiplayer 
 Runs can now continue even if the host leaves. The system uses multiplayer autosaves to recover the session.Note: you’ll be returned to the start of the current floor when this happens.
 We also improved host handling in general, so hosts leaving lobbies that haven't started a run will just assign a new host automatically.
 
-### Sealeed Soul Run Saving
+### Sealed Soul Run Saving
 Sealed Soul runs can now be saved.
 
 ### News UI (Home Base)
